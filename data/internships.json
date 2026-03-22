@@ -1,0 +1,3595 @@
+[
+  {
+    "id": 1,
+    "title": "Software Engineering Intern",
+    "company": "Google",
+    "location": "Multiple Locations, USA",
+    "major": [
+      "Computer Science",
+      "Computer Engineering",
+      "Computer and Information Sciences"
+    ],
+    "year": [
+      "Sophomore",
+      "Junior"
+    ],
+    "description": "Work on real Google products used by billions. Contribute to engineering projects in Search, Maps, YouTube, and Cloud.",
+    "link": "https://careers.google.com/jobs/results/?category=ENGINEERING_AND_TECHNOLOGY&employment_type=INTERN",
+    "states": [
+      "CA",
+      "NY",
+      "TX",
+      "WA",
+      "IL",
+      "GA",
+      "VA",
+      "MD",
+      "DC",
+      "MA",
+      "Remote"
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Software Development Engineer Intern",
+    "company": "Amazon",
+    "location": "Seattle, WA / Multiple Locations",
+    "major": [
+      "Computer Science",
+      "Computer Engineering",
+      "Computer and Information Sciences"
+    ],
+    "year": [
+      "Sophomore",
+      "Junior"
+    ],
+    "description": "Build and ship real features on Amazon's massive-scale systems across AWS, Alexa, Prime, and more.",
+    "link": "https://www.amazon.jobs/en/search?base_query=software+development+engineer+intern&job_type=INTERNSHIP",
+    "states": [
+      "WA",
+      "NY",
+      "TX",
+      "VA",
+      "MD",
+      "DC",
+      "CA",
+      "Remote"
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Software Engineering Intern",
+    "company": "Microsoft",
+    "location": "Redmond, WA / Remote",
+    "major": [
+      "Computer Science",
+      "Computer Engineering",
+      "Computer and Information Sciences"
+    ],
+    "year": [
+      "Sophomore",
+      "Junior"
+    ],
+    "description": "Collaborate with engineers across Microsoft's product teams including Azure, Office, Xbox, and LinkedIn.",
+    "link": "https://jobs.careers.microsoft.com/global/en/search?q=software+engineering+intern",
+    "states": [
+      "WA",
+      "NY",
+      "TX",
+      "VA",
+      "MD",
+      "DC",
+      "CA",
+      "Remote"
+    ]
+  },
+  {
+    "id": 4,
+    "title": "Software Engineering Intern",
+    "company": "Meta",
+    "location": "Menlo Park, CA / Remote",
+    "major": [
+      "Computer Science",
+      "Computer Engineering"
+    ],
+    "year": [
+      "Sophomore",
+      "Junior"
+    ],
+    "description": "Build the future of social connection, AR/VR, and AI at one of the world's largest tech companies.",
+    "link": "https://www.metacareers.com/jobs?offices[0]=United%20States&roles[0]=Intern&teams[0]=Software%20Engineering",
+    "states": [
+      "CA",
+      "NY",
+      "Remote"
+    ]
+  },
+  {
+    "id": 5,
+    "title": "Software Engineering Intern",
+    "company": "Apple",
+    "location": "Cupertino, CA",
+    "major": [
+      "Computer Science",
+      "Computer Engineering"
+    ],
+    "year": [
+      "Junior"
+    ],
+    "description": "Work on the software that powers iPhone, Mac, iPad, and Apple services used by hundreds of millions.",
+    "link": "https://jobs.apple.com/en-us/search?search=software+engineering+intern&sort=mostRecent",
+    "states": [
+      "CA"
+    ]
+  },
+  {
+    "id": 6,
+    "title": "Explore Intern Program",
+    "company": "Microsoft",
+    "location": "Redmond, WA",
+    "major": [
+      "Computer Science",
+      "Computer Engineering",
+      "Business Administration",
+      "MBA / Business"
+    ],
+    "year": [
+      "Sophomore"
+    ],
+    "description": "Microsoft's program specifically for Sophomores. Rotate across PM, SWE, and design roles over 12 weeks.",
+    "link": "https://jobs.careers.microsoft.com/global/en/search?q=explore+intern",
+    "states": [
+      "WA"
+    ]
+  },
+  {
+    "id": 7,
+    "title": "Data Science Intern",
+    "company": "Netflix",
+    "location": "Los Gatos, CA",
+    "major": [
+      "Computer Science",
+      "Mathematics",
+      "Information Science"
+    ],
+    "year": [
+      "Junior"
+    ],
+    "description": "Apply machine learning and data analysis to improve Netflix's recommendation systems and content strategy.",
+    "link": "https://jobs.netflix.com/search?q=intern",
+    "states": [
+      "CA"
+    ]
+  },
+  {
+    "id": 8,
+    "title": "Cybersecurity Intern",
+    "company": "Lockheed Martin",
+    "location": "Bethesda, MD / Multiple",
+    "major": [
+      "Computer Science",
+      "Cyber/Computer Forensics",
+      "Computer Engineering",
+      "Information Science"
+    ],
+    "year": [
+      "Sophomore",
+      "Junior"
+    ],
+    "description": "Support cybersecurity teams protecting critical defense infrastructure and networks.",
+    "link": "https://www.lockheedmartinjobs.com/search-jobs/intern",
+    "states": [
+      "MD",
+      "VA",
+      "DC",
+      "TX",
+      "FL",
+      "CA"
+    ]
+  },
+  {
+    "id": 9,
+    "title": "Cybersecurity Analyst Intern",
+    "company": "Booz Allen Hamilton",
+    "location": "Washington, DC / Remote",
+    "major": [
+      "Cyber/Computer Forensics",
+      "Computer Science",
+      "Information Science"
+    ],
+    "year": [
+      "Sophomore",
+      "Junior"
+    ],
+    "description": "Work on cyber threat detection and incident response for government and commercial clients.",
+    "link": "https://careers.boozallen.com/jobs/search?q=cybersecurity+intern",
+    "states": [
+      "VA",
+      "MD",
+      "DC",
+      "Remote"
+    ]
+  },
+  {
+    "id": 10,
+    "title": "Cybersecurity Intern",
+    "company": "Palo Alto Networks",
+    "location": "Santa Clara, CA / Remote",
+    "major": [
+      "Cyber/Computer Forensics",
+      "Computer Science",
+      "Information Science"
+    ],
+    "year": [
+      "Junior"
+    ],
+    "description": "Join the world's leading cybersecurity company and work on cutting-edge threat intelligence.",
+    "link": "https://jobs.paloaltonetworks.com/en/search/?q=intern",
+    "states": [
+      "CA",
+      "Remote"
+    ]
+  },
+  {
+    "id": 11,
+    "title": "IT Project Management Intern",
+    "company": "IBM",
+    "location": "Remote / Multiple Locations",
+    "major": [
+      "Computer Science",
+      "Management Information Systems",
+      "Information Science"
+    ],
+    "year": [
+      "Sophomore",
+      "Junior"
+    ],
+    "description": "Coordinate agile sprints and manage delivery timelines across IBM's technology projects.",
+    "link": "https://www.ibm.com/us-en/employment/entrylevel.html",
+    "states": [
+      "Remote",
+      "NY",
+      "TX",
+      "VA",
+      "MD",
+      "DC"
+    ]
+  },
+  {
+    "id": 12,
+    "title": "Technology Summer Analyst",
+    "company": "Goldman Sachs",
+    "location": "New York, NY",
+    "major": [
+      "Computer Science",
+      "Computer Engineering",
+      "MBA / Business"
+    ],
+    "year": [
+      "Junior"
+    ],
+    "description": "Build financial technology systems at the intersection of Wall Street and Silicon Valley.",
+    "link": "https://higher.gs.com/roles/filter?program=Summer+Analyst&division=Engineering",
+    "states": [
+      "NY"
+    ]
+  },
+  {
+    "id": 13,
+    "title": "MIS / Data Analytics Intern",
+    "company": "Deloitte",
+    "location": "Multiple Locations",
+    "major": [
+      "Management Information Systems",
+      "Computer Science",
+      "Information Science"
+    ],
+    "year": [
+      "Sophomore",
+      "Junior"
+    ],
+    "description": "Work on data-driven consulting projects helping Fortune 500 clients optimize their systems.",
+    "link": "https://apply.deloitte.com/careers/SearchJobs/intern",
+    "states": [
+      "NY",
+      "VA",
+      "MD",
+      "DC",
+      "CA",
+      "TX",
+      "Remote"
+    ]
+  },
+  {
+    "id": 14,
+    "title": "Investment Banking Summer Analyst",
+    "company": "Goldman Sachs",
+    "location": "New York, NY",
+    "major": [
+      "Finance",
+      "Accounting",
+      "Economics",
+      "MBA / Business"
+    ],
+    "year": [
+      "Junior"
+    ],
+    "description": "Work on live M&A, IPO, and capital markets transactions at the most prestigious investment bank.",
+    "link": "https://higher.gs.com/roles/filter?program=Summer+Analyst&division=Investment+Banking",
+    "states": [
+      "NY"
+    ]
+  },
+  {
+    "id": 15,
+    "title": "Investment Banking Summer Analyst",
+    "company": "JPMorgan Chase",
+    "location": "New York, NY",
+    "major": [
+      "Finance",
+      "Accounting",
+      "Economics",
+      "MBA / Business"
+    ],
+    "year": [
+      "Junior"
+    ],
+    "description": "Support live deals in M&A, equity, and debt capital markets within JPMorgan's top-ranked IBD.",
+    "link": "https://careers.jpmorgan.com/us/en/students/programs/investment-banking-summer-analyst",
+    "states": [
+      "NY"
+    ]
+  },
+  {
+    "id": 16,
+    "title": "Investment Banking Summer Analyst",
+    "company": "Morgan Stanley",
+    "location": "New York, NY",
+    "major": [
+      "Finance",
+      "Accounting",
+      "MBA / Business"
+    ],
+    "year": [
+      "Junior"
+    ],
+    "description": "Gain hands-on experience in investment banking across industry and product groups.",
+    "link": "https://www.morganstanley.com/people-opportunities/students-graduates/programs/investment-banking",
+    "states": [
+      "NY"
+    ]
+  },
+  {
+    "id": 17,
+    "title": "Investment Banking Summer Analyst",
+    "company": "Bank of America",
+    "location": "New York, NY / Charlotte, NC",
+    "major": [
+      "Finance",
+      "Accounting",
+      "MBA / Business"
+    ],
+    "year": [
+      "Junior"
+    ],
+    "description": "Work on mergers, acquisitions, and capital raises across Bank of America's global IBD.",
+    "link": "https://campus.bankofamerica.com/positions/investment-banking.html",
+    "states": [
+      "NY",
+      "NC"
+    ]
+  },
+  {
+    "id": 18,
+    "title": "Markets Summer Analyst",
+    "company": "Citi",
+    "location": "New York, NY",
+    "major": [
+      "Finance",
+      "Economics",
+      "MBA / Business"
+    ],
+    "year": [
+      "Junior"
+    ],
+    "description": "Trade equities, fixed income, and derivatives at one of the world's largest financial institutions.",
+    "link": "https://jobs.citi.com/category/students-and-graduates/287/6422681/1",
+    "states": [
+      "NY"
+    ]
+  },
+  {
+    "id": 19,
+    "title": "Finance & Operations Intern",
+    "company": "BlackRock",
+    "location": "New York, NY",
+    "major": [
+      "Finance",
+      "Accounting",
+      "Economics",
+      "MBA / Business"
+    ],
+    "year": [
+      "Sophomore",
+      "Junior"
+    ],
+    "description": "Join the world's largest asset manager and work across investment management, risk, and operations.",
+    "link": "https://careers.blackrock.com/early-careers/students",
+    "states": [
+      "NY"
+    ]
+  },
+  {
+    "id": 20,
+    "title": "Finance Summer Analyst",
+    "company": "Wells Fargo",
+    "location": "Charlotte, NC / Multiple",
+    "major": [
+      "Finance",
+      "Accounting",
+      "MBA / Business"
+    ],
+    "year": [
+      "Sophomore",
+      "Junior"
+    ],
+    "description": "Rotate across corporate finance, treasury, and financial analysis at one of America's largest banks.",
+    "link": "https://www.wellsfargojobs.com/en/jobs/?keywords=summer+analyst+intern",
+    "states": [
+      "NC",
+      "NY",
+      "TX",
+      "VA",
+      "MD",
+      "DC"
+    ]
+  },
+  {
+    "id": 21,
+    "title": "Investment Management Intern",
+    "company": "Fidelity Investments",
+    "location": "Boston, MA / Remote",
+    "major": [
+      "Finance",
+      "Accounting",
+      "Economics",
+      "MBA / Business"
+    ],
+    "year": [
+      "Sophomore",
+      "Junior"
+    ],
+    "description": "Work with portfolio managers and analysts at one of the world's top investment management firms.",
+    "link": "https://jobs.fidelity.com/students-and-early-talent",
+    "states": [
+      "MA",
+      "Remote"
+    ]
+  },
+  {
+    "id": 22,
+    "title": "Audit & Assurance Intern",
+    "company": "Deloitte",
+    "location": "Multiple Locations",
+    "major": [
+      "Accounting",
+      "Accounting and Finance",
+      "MBA / Business"
+    ],
+    "year": [
+      "Junior"
+    ],
+    "description": "Work on financial statement audits for Fortune 500 clients at the world's largest professional services firm.",
+    "link": "https://apply.deloitte.com/careers/SearchJobs/intern",
+    "states": [
+      "OR"
+    ]
+  },
+  {
+    "id": 23,
+    "title": "Audit Intern",
+    "company": "PwC",
+    "location": "Multiple Locations",
+    "major": [
+      "Accounting",
+      "Accounting and Finance",
+      "Finance",
+      "MBA / Business"
+    ],
+    "year": [
+      "Junior"
+    ],
+    "description": "Assist with audits of major companies and gain exposure to financial reporting and internal controls.",
+    "link": "https://jobs.us.pwc.com/search-jobs/intern",
+    "states": [
+      "NY",
+      "VA",
+      "MD",
+      "DC",
+      "CA",
+      "TX",
+      "Remote"
+    ]
+  },
+  {
+    "id": 24,
+    "title": "Audit & Tax Intern",
+    "company": "Ernst & Young (EY)",
+    "location": "Multiple Locations",
+    "major": [
+      "Accounting",
+      "Accounting and Finance",
+      "Finance",
+      "MBA / Business"
+    ],
+    "year": [
+      "Junior"
+    ],
+    "description": "Join one of the Big Four and work on real client audits, tax returns, and financial advisory projects.",
+    "link": "https://careers.ey.com/ey/search/?q=intern",
+    "states": [
+      "CA",
+      "NY",
+      "VA",
+      "MD",
+      "DC",
+      "TX",
+      "IL"
+    ]
+  },
+  {
+    "id": 25,
+    "title": "Audit Intern",
+    "company": "KPMG",
+    "location": "Multiple Locations",
+    "major": [
+      "Accounting",
+      "Accounting and Finance",
+      "MBA / Business"
+    ],
+    "year": [
+      "Junior"
+    ],
+    "description": "Support audit teams serving major clients in financial services, tech, and healthcare.",
+    "link": "https://jobs.kpmg.us/KPMG/go/Internships/8506200/",
+    "states": [
+      "IL",
+      "NY",
+      "VA",
+      "MD",
+      "DC",
+      "CA"
+    ]
+  },
+  {
+    "id": 26,
+    "title": "Tax Intern",
+    "company": "Grant Thornton",
+    "location": "Multiple Locations",
+    "major": [
+      "Accounting",
+      "Accounting and Finance",
+      "Finance",
+      "MBA / Business"
+    ],
+    "year": [
+      "Junior"
+    ],
+    "description": "Work on tax compliance and advisory projects at a top 10 accounting firm.",
+    "link": "https://www.grantthornton.com/careers/students-and-recent-graduates",
+    "states": [
+      "NY",
+      "VA",
+      "MD",
+      "DC",
+      "GA",
+      "TX"
+    ]
+  },
+  {
+    "id": 27,
+    "title": "Accounting & Finance Intern",
+    "company": "Target",
+    "location": "Minneapolis, MN",
+    "major": [
+      "Accounting",
+      "Accounting and Finance",
+      "Finance",
+      "MBA / Business"
+    ],
+    "year": [
+      "Sophomore",
+      "Junior"
+    ],
+    "description": "Support corporate accounting and financial reporting for one of America's most beloved retail brands.",
+    "link": "https://corporate.target.com/careers/students",
+    "states": [
+      "MN"
+    ]
+  },
+  {
+    "id": 28,
+    "title": "Banking Intern",
+    "company": "Capital One",
+    "location": "McLean, VA / Multiple",
+    "major": [
+      "Banking and Financial Support Services",
+      "Finance",
+      "Accounting",
+      "MBA / Business"
+    ],
+    "year": [
+      "Sophomore",
+      "Junior"
+    ],
+    "description": "Work at the intersection of banking, technology, and data at one of America's fastest-growing banks.",
+    "link": "https://www.capitalonecareers.com/search-jobs/intern",
+    "states": [
+      "CA",
+      "FL"
+    ]
+  },
+  {
+    "id": 29,
+    "title": "Economics Research Intern",
+    "company": "Federal Reserve Bank",
+    "location": "Washington, DC / Multiple",
+    "major": [
+      "Economics",
+      "Business/Managerial Economics",
+      "Finance",
+      "Mathematics"
+    ],
+    "year": [
+      "Junior"
+    ],
+    "description": "Conduct economic research and policy analysis at America's central bank.",
+    "link": "https://www.federalreserve.gov/careers/internships.htm",
+    "states": [
+      "OR"
+    ]
+  },
+  {
+    "id": 30,
+    "title": "Economic Research Intern",
+    "company": "World Bank",
+    "location": "Washington, DC",
+    "major": [
+      "Economics",
+      "Business/Managerial Economics",
+      "International Relations",
+      "Public Administration"
+    ],
+    "year": [
+      "Junior"
+    ],
+    "description": "Support global development research and economic policy at the world's leading development institution.",
+    "link": "https://www.worldbank.org/en/about/careers/programs-and-internships/internship",
+    "states": [
+      "CA",
+      "NY",
+      "IL",
+      "Remote"
+    ]
+  },
+  {
+    "id": 31,
+    "title": "Marketing Intern",
+    "company": "Nike",
+    "location": "Beaverton, OR",
+    "major": [
+      "Marketing",
+      "Business Administration",
+      "MBA / Business",
+      "Sales and Marketing Operations"
+    ],
+    "year": [
+      "Sophomore",
+      "Junior"
+    ],
+    "description": "Support brand campaigns and consumer engagement for the world's most iconic sports brand.",
+    "link": "https://jobs.nike.com/teams/marketing",
+    "states": [
+      "NY",
+      "VA",
+      "MD",
+      "DC",
+      "Remote"
+    ]
+  },
+  {
+    "id": 32,
+    "title": "Brand Marketing Intern",
+    "company": "Apple",
+    "location": "Cupertino, CA",
+    "major": [
+      "Marketing",
+      "Business Administration",
+      "MBA / Business"
+    ],
+    "year": [
+      "Sophomore",
+      "Junior"
+    ],
+    "description": "Contribute to Apple's world-class marketing campaigns across product launches and digital channels.",
+    "link": "https://jobs.apple.com/en-us/search?search=marketing+intern",
+    "states": [
+      "NY",
+      "CA",
+      "GA",
+      "Remote"
+    ]
+  },
+  {
+    "id": 33,
+    "title": "Marketing Summer Intern",
+    "company": "PepsiCo",
+    "location": "Purchase, NY",
+    "major": [
+      "Marketing",
+      "Business Administration",
+      "MBA / Business",
+      "Sales and Marketing Operations"
+    ],
+    "year": [
+      "Sophomore",
+      "Junior"
+    ],
+    "description": "Develop brand strategy for iconic brands like Pepsi, Gatorade, Lay's, and Doritos.",
+    "link": "https://www.pepsicojobs.com/main/jobs?keywords=marketing+intern",
+    "states": [
+      "NY"
+    ]
+  },
+  {
+    "id": 34,
+    "title": "Brand Marketing Intern",
+    "company": "Coca-Cola",
+    "location": "Atlanta, GA",
+    "major": [
+      "Marketing",
+      "Business Administration",
+      "MBA / Business"
+    ],
+    "year": [
+      "Sophomore",
+      "Junior"
+    ],
+    "description": "Support brand development and campaigns for the world's most recognized beverage portfolio.",
+    "link": "https://careers.coca-colacompany.com/search/?q=marketing+intern",
+    "states": [
+      "NY",
+      "CA",
+      "Remote"
+    ]
+  },
+  {
+    "id": 35,
+    "title": "Marketing Intern",
+    "company": "L'Or\u00e9al",
+    "location": "New York, NY",
+    "major": [
+      "Marketing",
+      "Business Administration",
+      "MBA / Business"
+    ],
+    "year": [
+      "Sophomore",
+      "Junior"
+    ],
+    "description": "Develop brand strategy for L'Or\u00e9al's portfolio including Maybelline, Lanc\u00f4me, and Garnier.",
+    "link": "https://careers.loreal.com/en_US/jobs/SearchJobs/intern",
+    "states": [
+      "CA"
+    ]
+  },
+  {
+    "id": 36,
+    "title": "Sales & Business Development Intern",
+    "company": "Salesforce",
+    "location": "San Francisco, CA / Remote",
+    "major": [
+      "Sales and Marketing Operations",
+      "Marketing",
+      "Business Administration",
+      "MBA / Business"
+    ],
+    "year": [
+      "Sophomore",
+      "Junior"
+    ],
+    "description": "Drive revenue growth and build client relationships at the world's #1 CRM company.",
+    "link": "https://salesforce.wd12.myworkdayjobs.com/en-US/External_Career_Site?q=intern",
+    "states": [
+      "CA",
+      "NY",
+      "Remote"
+    ]
+  },
+  {
+    "id": 37,
+    "title": "Human Resources Intern",
+    "company": "Apple",
+    "location": "Cupertino, CA",
+    "major": [
+      "Human Resources Management",
+      "Psychology",
+      "Business Administration",
+      "MBA / Business"
+    ],
+    "year": [
+      "Sophomore",
+      "Junior"
+    ],
+    "description": "Support talent acquisition, people programs, and HR operations at one of the world's most admired companies.",
+    "link": "https://jobs.apple.com/en-us/search?search=hr+intern",
+    "states": [
+      "VA",
+      "MD",
+      "DC",
+      "CA",
+      "Remote"
+    ]
+  },
+  {
+    "id": 38,
+    "title": "Human Resources Intern",
+    "company": "Google",
+    "location": "Mountain View, CA / Remote",
+    "major": [
+      "Human Resources Management",
+      "Psychology",
+      "Business Administration"
+    ],
+    "year": [
+      "Sophomore",
+      "Junior"
+    ],
+    "description": "Support Google's People Operations team on talent, culture, and organizational effectiveness.",
+    "link": "https://careers.google.com/jobs/results/?category=PEOPLE_OPERATIONS&employment_type=INTERN",
+    "states": [
+      "CA",
+      "Remote"
+    ]
+  },
+  {
+    "id": 39,
+    "title": "HR & Talent Acquisition Intern",
+    "company": "Deloitte",
+    "location": "Multiple Locations",
+    "major": [
+      "Human Resources Management",
+      "Psychology",
+      "MBA / Business"
+    ],
+    "year": [
+      "Sophomore",
+      "Junior"
+    ],
+    "description": "Support recruiting, onboarding, and talent development at the world's largest professional services firm.",
+    "link": "https://apply.deloitte.com/careers/SearchJobs/intern",
+    "states": [
+      "NY",
+      "VA",
+      "MD",
+      "DC",
+      "CA",
+      "TX"
+    ]
+  },
+  {
+    "id": 40,
+    "title": "Business Analyst Intern",
+    "company": "McKinsey & Company",
+    "location": "Multiple Locations",
+    "major": [
+      "Business Administration",
+      "Finance",
+      "Economics",
+      "MBA / Business"
+    ],
+    "year": [
+      "Junior"
+    ],
+    "description": "Work alongside consultants solving strategic problems for the world's top companies and governments.",
+    "link": "https://www.mckinsey.com/careers/students",
+    "states": [
+      "NY",
+      "VA",
+      "MD",
+      "DC"
+    ]
+  },
+  {
+    "id": 41,
+    "title": "Summer Business Analyst",
+    "company": "Boston Consulting Group",
+    "location": "Multiple Locations",
+    "major": [
+      "Business Administration",
+      "Finance",
+      "Economics",
+      "MBA / Business"
+    ],
+    "year": [
+      "Junior"
+    ],
+    "description": "Tackle complex business challenges and deliver strategic recommendations to BCG's top-tier clients.",
+    "link": "https://careers.bcg.com/students",
+    "states": [
+      "NY",
+      "VA",
+      "MD",
+      "DC",
+      "CA"
+    ]
+  },
+  {
+    "id": 42,
+    "title": "Product Management Intern",
+    "company": "Meta",
+    "location": "Menlo Park, CA",
+    "major": [
+      "Business Administration",
+      "Computer Science",
+      "MBA / Business"
+    ],
+    "year": [
+      "Junior"
+    ],
+    "description": "Define product strategy and work with engineering and design teams to build features used by billions.",
+    "link": "https://www.metacareers.com/jobs?offices[0]=United%20States&roles[0]=Intern&teams[0]=Product%20Management",
+    "states": [
+      "CA",
+      "NY",
+      "VA",
+      "MD",
+      "DC"
+    ]
+  },
+  {
+    "id": 43,
+    "title": "Strategy & Operations Intern",
+    "company": "Google",
+    "location": "Multiple Locations",
+    "major": [
+      "Business Administration",
+      "Finance",
+      "MBA / Business"
+    ],
+    "year": [
+      "Junior"
+    ],
+    "description": "Work on strategic planning and operational efficiency across Google's global divisions.",
+    "link": "https://careers.google.com/jobs/results/?category=BUSINESS&employment_type=INTERN",
+    "states": [
+      "DC",
+      "VA",
+      "MD"
+    ]
+  },
+  {
+    "id": 44,
+    "title": "MBA Summer Associate",
+    "company": "McKinsey & Company",
+    "location": "Multiple Locations",
+    "major": [
+      "MBA / Business"
+    ],
+    "year": [
+      "Junior"
+    ],
+    "description": "Lead client engagements and solve complex strategic problems at the world's most prestigious consulting firm.",
+    "link": "https://www.mckinsey.com/careers/students",
+    "states": [
+      "CA"
+    ]
+  },
+  {
+    "id": 45,
+    "title": "MBA Strategy Intern",
+    "company": "Amazon",
+    "location": "Seattle, WA / Remote",
+    "major": [
+      "MBA / Business",
+      "Business Administration"
+    ],
+    "year": [
+      "Junior"
+    ],
+    "description": "Own product roadmaps and launch strategies for Amazon's consumer and B2B businesses.",
+    "link": "https://www.amazon.jobs/en/search?base_query=MBA+intern&job_type=INTERNSHIP",
+    "states": [
+      "NY",
+      "VA",
+      "MD",
+      "DC",
+      "CA",
+      "TX",
+      "IL",
+      "Remote"
+    ]
+  },
+  {
+    "id": 46,
+    "title": "Corporate Strategy Intern",
+    "company": "Apple",
+    "location": "Cupertino, CA",
+    "major": [
+      "MBA / Business",
+      "Business Administration"
+    ],
+    "year": [
+      "Junior"
+    ],
+    "description": "Support Apple's corporate strategy team on high-impact projects shaping the company's future.",
+    "link": "https://jobs.apple.com/en-us/search?search=strategy+intern",
+    "states": [
+      "NY",
+      "VA",
+      "MD",
+      "DC",
+      "CA",
+      "TX",
+      "IL",
+      "Remote"
+    ]
+  },
+  {
+    "id": 47,
+    "title": "Communications Intern",
+    "company": "CNN",
+    "location": "Atlanta, GA / New York, NY",
+    "major": [
+      "Journalism",
+      "Broadcast Journalism",
+      "Communications",
+      "Organizational Communication",
+      "Public Relations"
+    ],
+    "year": [
+      "Sophomore",
+      "Junior"
+    ],
+    "description": "Assist with media relations, digital storytelling, and content production at a top global news network.",
+    "link": "https://careers.wbd.com/global/en/search-results?keywords=intern",
+    "states": [
+      "WA",
+      "Remote"
+    ]
+  },
+  {
+    "id": 48,
+    "title": "Journalism Intern",
+    "company": "The New York Times",
+    "location": "New York, NY",
+    "major": [
+      "Journalism",
+      "Broadcast Journalism",
+      "English"
+    ],
+    "year": [
+      "Junior"
+    ],
+    "description": "Report, research, and write stories under the mentorship of award-winning journalists.",
+    "link": "https://www.nytimes.com/jobs",
+    "states": [
+      "CA"
+    ]
+  },
+  {
+    "id": 49,
+    "title": "Journalism Intern",
+    "company": "The Washington Post",
+    "location": "Washington, DC",
+    "major": [
+      "Journalism",
+      "Broadcast Journalism",
+      "English"
+    ],
+    "year": [
+      "Sophomore",
+      "Junior"
+    ],
+    "description": "Research, report, and write stories under the mentorship of Pulitzer Prize-winning journalists.",
+    "link": "https://careers.washingtonpost.com/jobs/search?search=intern",
+    "states": [
+      "WA",
+      "Remote"
+    ]
+  },
+  {
+    "id": 50,
+    "title": "Broadcast Journalism Intern",
+    "company": "NBC Universal",
+    "location": "New York, NY / Los Angeles, CA",
+    "major": [
+      "Broadcast Journalism",
+      "Journalism",
+      "Organizational Communication"
+    ],
+    "year": [
+      "Sophomore",
+      "Junior"
+    ],
+    "description": "Work across NBC News, MSNBC, Bravo, and Telemundo on media and communications projects.",
+    "link": "https://www.nbcunicareers.com/early-careers",
+    "states": [
+      "CA",
+      "NY",
+      "TX",
+      "VA",
+      "MD",
+      "DC",
+      "Remote"
+    ]
+  },
+  {
+    "id": 51,
+    "title": "Sports Broadcasting Intern",
+    "company": "ESPN",
+    "location": "Bristol, CT / Remote",
+    "major": [
+      "Broadcast Journalism",
+      "Journalism",
+      "Sport and Fitness Management"
+    ],
+    "year": [
+      "Sophomore",
+      "Junior"
+    ],
+    "description": "Work behind the scenes at the worldwide leader in sports on production, research, and on-air content.",
+    "link": "https://jobs.disneycareers.com/search-jobs?q=ESPN+intern",
+    "states": [
+      "MN"
+    ]
+  },
+  {
+    "id": 52,
+    "title": "Public Relations Intern",
+    "company": "Edelman",
+    "location": "New York, NY / Washington, DC",
+    "major": [
+      "Public Relations",
+      "Organizational Communication",
+      "Journalism",
+      "Marketing"
+    ],
+    "year": [
+      "Sophomore",
+      "Junior"
+    ],
+    "description": "Develop PR strategies and manage media outreach for Fortune 500 clients at the world's largest PR firm.",
+    "link": "https://www.edelman.com/careers",
+    "states": [
+      "OR"
+    ]
+  },
+  {
+    "id": 53,
+    "title": "Communications & Media Intern",
+    "company": "Disney",
+    "location": "Burbank, CA / New York, NY",
+    "major": [
+      "Broadcast Journalism",
+      "Journalism",
+      "Public Relations",
+      "Organizational Communication"
+    ],
+    "year": [
+      "Sophomore",
+      "Junior"
+    ],
+    "description": "Support communications strategy for Disney's brands including ABC, ESPN, Marvel, and Hulu.",
+    "link": "https://jobs.disneycareers.com/search-jobs?k=communications+intern",
+    "states": [
+      "CA"
+    ]
+  },
+  {
+    "id": 54,
+    "title": "Corporate Communications Intern",
+    "company": "Google",
+    "location": "Mountain View, CA",
+    "major": [
+      "Organizational Communication",
+      "Public Relations",
+      "Journalism",
+      "MBA / Business"
+    ],
+    "year": [
+      "Junior"
+    ],
+    "description": "Support internal and external communications for Google's global communications team.",
+    "link": "https://careers.google.com/jobs/results/?category=MARKETING&employment_type=INTERN",
+    "states": [
+      "DC",
+      "VA",
+      "MD"
+    ]
+  },
+  {
+    "id": 55,
+    "title": "Editorial Intern",
+    "company": "HarperCollins Publishers",
+    "location": "New York, NY",
+    "major": [
+      "English",
+      "Journalism",
+      "Liberal Arts"
+    ],
+    "year": [
+      "Sophomore",
+      "Junior"
+    ],
+    "description": "Work alongside editors on manuscript reviews, author correspondence, and book marketing at a Big Five publisher.",
+    "link": "https://www.harpercollins.com/pages/careers",
+    "states": [
+      "NY",
+      "VA",
+      "MD",
+      "DC",
+      "CA",
+      "TX",
+      "IL",
+      "Remote"
+    ]
+  },
+  {
+    "id": 56,
+    "title": "Content & Copywriting Intern",
+    "company": "BuzzFeed",
+    "location": "New York, NY / Remote",
+    "major": [
+      "English",
+      "Journalism",
+      "Liberal Arts"
+    ],
+    "year": [
+      "Sophomore",
+      "Junior"
+    ],
+    "description": "Create engaging digital content and develop your writing voice for one of the internet's most-read media brands.",
+    "link": "https://www.buzzfeed.com/about/jobs",
+    "states": [
+      "NY",
+      "VA",
+      "MD",
+      "DC",
+      "CA",
+      "TX",
+      "IL",
+      "Remote"
+    ]
+  },
+  {
+    "id": 57,
+    "title": "UX Research Intern",
+    "company": "Google",
+    "location": "Mountain View, CA / Remote",
+    "major": [
+      "Psychology",
+      "Computer Science"
+    ],
+    "year": [
+      "Junior"
+    ],
+    "description": "Apply behavioral science and user research to improve Google's products for billions of users.",
+    "link": "https://careers.google.com/jobs/results/?category=USER_EXPERIENCE&employment_type=INTERN",
+    "states": [
+      "CA",
+      "Remote"
+    ]
+  },
+  {
+    "id": 58,
+    "title": "UX Research Intern",
+    "company": "Meta",
+    "location": "Menlo Park, CA / Remote",
+    "major": [
+      "Psychology",
+      "Computer Science"
+    ],
+    "year": [
+      "Junior"
+    ],
+    "description": "Apply behavioral research methods to understand how people use Facebook, Instagram, and WhatsApp.",
+    "link": "https://www.metacareers.com/jobs?offices[0]=United%20States&roles[0]=Intern&teams[0]=User%20Experience",
+    "states": [
+      "CA",
+      "Remote"
+    ]
+  },
+  {
+    "id": 59,
+    "title": "People & Organizational Psychology Intern",
+    "company": "Amazon",
+    "location": "Seattle, WA / Remote",
+    "major": [
+      "Psychology",
+      "Human Resources Management",
+      "MBA / Business"
+    ],
+    "year": [
+      "Junior"
+    ],
+    "description": "Apply I/O psychology to improve employee experience, leadership development, and organizational culture.",
+    "link": "https://www.amazon.jobs/en/search?base_query=psychology+intern&job_type=INTERNSHIP",
+    "states": [
+      "WA",
+      "Remote"
+    ]
+  },
+  {
+    "id": 60,
+    "title": "Mental Health & Wellness Intern",
+    "company": "Kaiser Permanente",
+    "location": "Oakland, CA / Multiple",
+    "major": [
+      "Psychology",
+      "Social Work",
+      "Nursing"
+    ],
+    "year": [
+      "Sophomore",
+      "Junior"
+    ],
+    "description": "Support mental health programs and behavioral health initiatives at one of the nation's largest HMOs.",
+    "link": "https://jobs.kaiserpermanente.org/search-jobs/intern",
+    "states": [
+      "CA",
+      "Multiple"
+    ]
+  },
+  {
+    "id": 61,
+    "title": "Social Work Intern",
+    "company": "American Red Cross",
+    "location": "Washington, DC / Multiple",
+    "major": [
+      "Social Work",
+      "Psychology",
+      "Sociology"
+    ],
+    "year": [
+      "Sophomore",
+      "Junior"
+    ],
+    "description": "Support disaster relief, blood services, and community health programs at America's most recognized nonprofit.",
+    "link": "https://www.redcross.org/about-us/careers/internships.html",
+    "states": [
+      "CA",
+      "Remote"
+    ]
+  },
+  {
+    "id": 62,
+    "title": "Social Services Intern",
+    "company": "United Way",
+    "location": "Multiple Locations",
+    "major": [
+      "Social Work",
+      "Psychology",
+      "Sociology",
+      "Public Administration"
+    ],
+    "year": [
+      "Sophomore",
+      "Junior"
+    ],
+    "description": "Support community programs addressing poverty, education, and health at America's largest nonprofit network.",
+    "link": "https://www.unitedway.org/careers",
+    "states": [
+      "WA",
+      "Remote"
+    ]
+  },
+  {
+    "id": 63,
+    "title": "Research & Policy Intern",
+    "company": "NAACP",
+    "location": "Baltimore, MD / Washington, DC",
+    "major": [
+      "Social Work",
+      "Political Science",
+      "Sociology",
+      "Public Administration"
+    ],
+    "year": [
+      "Sophomore",
+      "Junior"
+    ],
+    "description": "Support civil rights advocacy, research, and policy work at America's oldest civil rights organization.",
+    "link": "https://naacp.org/about/careers",
+    "states": [
+      "TX",
+      "CA",
+      "NY"
+    ]
+  },
+  {
+    "id": 64,
+    "title": "Sociology Research Intern",
+    "company": "Pew Research Center",
+    "location": "Washington, DC",
+    "major": [
+      "Sociology",
+      "Sociology and Anthropology",
+      "Psychology",
+      "Political Science"
+    ],
+    "year": [
+      "Junior"
+    ],
+    "description": "Conduct quantitative and qualitative research on social trends, demographics, and public opinion.",
+    "link": "https://www.pewresearch.org/about/jobs/",
+    "states": [
+      "MI"
+    ]
+  },
+  {
+    "id": 65,
+    "title": "Nursing Extern / Clinical Intern",
+    "company": "Johns Hopkins Hospital",
+    "location": "Baltimore, MD",
+    "major": [
+      "Nursing"
+    ],
+    "year": [
+      "Sophomore",
+      "Junior"
+    ],
+    "description": "Gain clinical experience at one of the world's most renowned hospitals under RN supervision.",
+    "link": "https://jobs.hopkinsmedicine.org/search-jobs/nursing+intern",
+    "states": [
+      "CA",
+      "NY"
+    ]
+  },
+  {
+    "id": 66,
+    "title": "Nursing Intern",
+    "company": "Mayo Clinic",
+    "location": "Rochester, MN / Multiple",
+    "major": [
+      "Nursing"
+    ],
+    "year": [
+      "Sophomore",
+      "Junior"
+    ],
+    "description": "Develop clinical nursing skills alongside top medical professionals at the #1 hospital in the US.",
+    "link": "https://jobs.mayoclinic.org/search-jobs/nursing+intern",
+    "states": [
+      "MD",
+      "VA",
+      "DC",
+      "Remote"
+    ]
+  },
+  {
+    "id": 67,
+    "title": "Nursing Student Extern",
+    "company": "Cleveland Clinic",
+    "location": "Cleveland, OH / Multiple",
+    "major": [
+      "Nursing"
+    ],
+    "year": [
+      "Sophomore",
+      "Junior"
+    ],
+    "description": "Apply classroom knowledge in a real clinical setting at one of America's top-ranked health systems.",
+    "link": "https://jobs.clevelandclinic.org/search-jobs/nursing+student",
+    "states": [
+      "NY",
+      "VA",
+      "MD",
+      "DC",
+      "CA",
+      "TX",
+      "IL"
+    ]
+  },
+  {
+    "id": 68,
+    "title": "Health Sciences Intern",
+    "company": "UnitedHealth Group",
+    "location": "Minnetonka, MN / Remote",
+    "major": [
+      "Nursing",
+      "Biology",
+      "Kinesiology and Exercise Science",
+      "MBA / Business"
+    ],
+    "year": [
+      "Sophomore",
+      "Junior"
+    ],
+    "description": "Support healthcare delivery, data analytics, and health policy at the nation's largest health insurer.",
+    "link": "https://careers.unitedhealthgroup.com/students",
+    "states": [
+      "NY",
+      "VA",
+      "MD",
+      "DC",
+      "CA",
+      "TX",
+      "IL"
+    ]
+  },
+  {
+    "id": 69,
+    "title": "Speech-Language Pathology Intern",
+    "company": "Children's National Hospital",
+    "location": "Washington, DC",
+    "major": [
+      "Speech-Language Pathology"
+    ],
+    "year": [
+      "Junior"
+    ],
+    "description": "Gain hands-on clinical experience in pediatric speech and language therapy at a top children's hospital.",
+    "link": "https://childrensnational.org/careers",
+    "states": [
+      "NY",
+      "VA",
+      "MD",
+      "DC",
+      "CA",
+      "TX",
+      "IL"
+    ]
+  },
+  {
+    "id": 70,
+    "title": "Clinical Extern \u2013 Speech Pathology",
+    "company": "INOVA Health System",
+    "location": "Falls Church, VA",
+    "major": [
+      "Speech-Language Pathology"
+    ],
+    "year": [
+      "Junior"
+    ],
+    "description": "Work alongside licensed SLPs in inpatient and outpatient settings treating speech, language, and swallowing disorders.",
+    "link": "https://www.inova.org/careers",
+    "states": [
+      "NY",
+      "CA",
+      "TX",
+      "IL",
+      "VA",
+      "MD",
+      "DC",
+      "Remote"
+    ]
+  },
+  {
+    "id": 71,
+    "title": "Biomedical Research Intern",
+    "company": "NIH (National Institutes of Health)",
+    "location": "Bethesda, MD",
+    "major": [
+      "Biology",
+      "Biochemistry",
+      "Chemistry"
+    ],
+    "year": [
+      "Sophomore",
+      "Junior"
+    ],
+    "description": "Conduct cutting-edge biomedical research at the world's leading medical research institution.",
+    "link": "https://www.training.nih.gov/programs/sip",
+    "states": [
+      "NY"
+    ]
+  },
+  {
+    "id": 72,
+    "title": "Research & Development Intern",
+    "company": "Pfizer",
+    "location": "New York, NY / Multiple",
+    "major": [
+      "Biology",
+      "Biochemistry",
+      "Chemistry"
+    ],
+    "year": [
+      "Junior"
+    ],
+    "description": "Work alongside scientists on drug discovery, clinical research, and pharmaceutical development.",
+    "link": "https://www.pfizer.com/about/careers/students-and-recent-graduates",
+    "states": [
+      "NY"
+    ]
+  },
+  {
+    "id": 73,
+    "title": "Biotech Research Intern",
+    "company": "Moderna",
+    "location": "Cambridge, MA",
+    "major": [
+      "Biology",
+      "Biochemistry"
+    ],
+    "year": [
+      "Junior"
+    ],
+    "description": "Work on mRNA therapeutics and vaccine research at the biotech company that changed the world.",
+    "link": "https://www.modernatx.com/careers/students-and-recent-grads",
+    "states": [
+      "CA",
+      "VA",
+      "MD",
+      "DC",
+      "Remote"
+    ]
+  },
+  {
+    "id": 74,
+    "title": "Clinical Research Intern",
+    "company": "Mayo Clinic",
+    "location": "Rochester, MN / Multiple",
+    "major": [
+      "Biology",
+      "Biochemistry",
+      "Chemistry",
+      "Nursing"
+    ],
+    "year": [
+      "Sophomore",
+      "Junior"
+    ],
+    "description": "Assist with clinical trials and medical research at one of the world's top-ranked hospitals.",
+    "link": "https://jobs.mayoclinic.org/search-jobs/intern",
+    "states": [
+      "WA",
+      "Remote"
+    ]
+  },
+  {
+    "id": 75,
+    "title": "Chemistry Research Intern",
+    "company": "Dow Chemical",
+    "location": "Midland, MI / Multiple",
+    "major": [
+      "Chemistry",
+      "Chemical Engineering",
+      "Biochemistry"
+    ],
+    "year": [
+      "Sophomore",
+      "Junior"
+    ],
+    "description": "Work on materials science and chemical solutions at one of the world's largest chemical companies.",
+    "link": "https://jobs.dow.com/en/search-jobs/intern",
+    "states": [
+      "CA",
+      "VA",
+      "MD",
+      "DC"
+    ]
+  },
+  {
+    "id": 76,
+    "title": "Chemical Engineering Intern",
+    "company": "ExxonMobil",
+    "location": "Houston, TX / Multiple",
+    "major": [
+      "Chemical Engineering",
+      "Chemistry"
+    ],
+    "year": [
+      "Sophomore",
+      "Junior"
+    ],
+    "description": "Work on refining, petrochemicals, and energy technology at one of the world's largest energy companies.",
+    "link": "https://jobs.exxonmobil.com/en/search-jobs/intern",
+    "states": [
+      "MD",
+      "DC",
+      "VA"
+    ]
+  },
+  {
+    "id": 77,
+    "title": "Mechanical Engineering Intern",
+    "company": "Tesla",
+    "location": "Fremont, CA / Austin, TX",
+    "major": [
+      "Engineering",
+      "Chemical Engineering"
+    ],
+    "year": [
+      "Sophomore",
+      "Junior"
+    ],
+    "description": "Work on electric vehicles, energy storage, and manufacturing systems at the world's leading EV company.",
+    "link": "https://www.tesla.com/careers/search/job/internship",
+    "states": [
+      "MD",
+      "VA",
+      "DC"
+    ]
+  },
+  {
+    "id": 78,
+    "title": "Engineering Intern",
+    "company": "SpaceX",
+    "location": "Hawthorne, CA / Multiple",
+    "major": [
+      "Engineering",
+      "Physics",
+      "Chemical Engineering"
+    ],
+    "year": [
+      "Sophomore",
+      "Junior"
+    ],
+    "description": "Help build rockets and spacecraft that are redefining humanity's access to space.",
+    "link": "https://www.spacex.com/careers/?filter=internship",
+    "states": [
+      "MD",
+      "VA",
+      "DC"
+    ]
+  },
+  {
+    "id": 79,
+    "title": "Electrical Engineering Intern",
+    "company": "Boeing",
+    "location": "Seattle, WA / Multiple",
+    "major": [
+      "Engineering",
+      "Physics"
+    ],
+    "year": [
+      "Sophomore",
+      "Junior"
+    ],
+    "description": "Work on commercial airplanes, defense systems, and space technology at the world's largest aerospace company.",
+    "link": "https://jobs.boeing.com/category/internship-jobs/185/6338/1",
+    "states": [
+      "MD",
+      "VA",
+      "DC"
+    ]
+  },
+  {
+    "id": 80,
+    "title": "Hardware Engineering Intern",
+    "company": "Apple",
+    "location": "Cupertino, CA",
+    "major": [
+      "Engineering",
+      "Computer Engineering",
+      "Physics"
+    ],
+    "year": [
+      "Junior"
+    ],
+    "description": "Work on the hardware that powers iPhone, Mac, AirPods, and Apple Silicon chips.",
+    "link": "https://jobs.apple.com/en-us/search?search=engineering+intern",
+    "states": [
+      "NY",
+      "VA",
+      "MD",
+      "DC"
+    ]
+  },
+  {
+    "id": 81,
+    "title": "Physics Research Intern",
+    "company": "NASA",
+    "location": "Multiple Locations",
+    "major": [
+      "Physics",
+      "Engineering",
+      "Mathematics",
+      "Computer Science"
+    ],
+    "year": [
+      "Sophomore",
+      "Junior"
+    ],
+    "description": "Work alongside NASA scientists and engineers on space exploration, aeronautics, and earth science.",
+    "link": "https://intern.nasa.gov/",
+    "states": [
+      "MD",
+      "VA",
+      "DC",
+      "Remote"
+    ]
+  },
+  {
+    "id": 82,
+    "title": "Data Science Intern",
+    "company": "IBM",
+    "location": "Remote / Multiple",
+    "major": [
+      "Mathematics",
+      "Computer Science",
+      "Information Science"
+    ],
+    "year": [
+      "Sophomore",
+      "Junior"
+    ],
+    "description": "Build AI and analytics solutions using IBM's cutting-edge data science platforms.",
+    "link": "https://www.ibm.com/us-en/employment/entrylevel.html",
+    "states": [
+      "Remote",
+      "NY",
+      "TX",
+      "VA",
+      "MD",
+      "DC"
+    ]
+  },
+  {
+    "id": 83,
+    "title": "Quantitative Research Intern",
+    "company": "Jane Street",
+    "location": "New York, NY",
+    "major": [
+      "Mathematics",
+      "Computer Science",
+      "Physics"
+    ],
+    "year": [
+      "Junior"
+    ],
+    "description": "Apply mathematical and statistical modeling to financial markets at one of the top quant trading firms.",
+    "link": "https://www.janestreet.com/join-jane-street/programs-and-events/",
+    "states": [
+      "MN"
+    ]
+  },
+  {
+    "id": 84,
+    "title": "Marine Science Research Intern",
+    "company": "NOAA (National Oceanic and Atmospheric Administration)",
+    "location": "Multiple Locations",
+    "major": [
+      "Marine Biology",
+      "Biology",
+      "Chemistry"
+    ],
+    "year": [
+      "Sophomore",
+      "Junior"
+    ],
+    "description": "Conduct ocean and atmospheric research supporting NOAA's mission to understand and protect the environment.",
+    "link": "https://www.noaa.gov/education/resource-collections/professional-development/noaa-internships",
+    "states": [
+      "MD",
+      "VA",
+      "DC",
+      "Remote"
+    ]
+  },
+  {
+    "id": 85,
+    "title": "Marine Biology Research Intern",
+    "company": "Woods Hole Oceanographic Institution",
+    "location": "Woods Hole, MA",
+    "major": [
+      "Marine Biology",
+      "Biology"
+    ],
+    "year": [
+      "Sophomore",
+      "Junior"
+    ],
+    "description": "Work with world-class ocean scientists on cutting-edge marine research.",
+    "link": "https://www.whoi.edu/what-we-do/educate/undergraduate-programs/summer-student-fellowship/",
+    "states": [
+      "NY",
+      "Remote"
+    ]
+  },
+  {
+    "id": 86,
+    "title": "Kinesiology & Sports Science Intern",
+    "company": "Nike Sport Research Lab",
+    "location": "Beaverton, OR",
+    "major": [
+      "Kinesiology and Exercise Science",
+      "Sport and Fitness Management"
+    ],
+    "year": [
+      "Junior"
+    ],
+    "description": "Conduct biomechanics and human performance research at Nike's world-class sports science facility.",
+    "link": "https://jobs.nike.com/teams/sport-research",
+    "states": [
+      "CA",
+      "MA"
+    ]
+  },
+  {
+    "id": 87,
+    "title": "Athletic Performance Intern",
+    "company": "NBA",
+    "location": "New York, NY / Multiple",
+    "major": [
+      "Kinesiology and Exercise Science",
+      "Sport and Fitness Management"
+    ],
+    "year": [
+      "Sophomore",
+      "Junior"
+    ],
+    "description": "Support athlete performance and wellness programs for NBA teams and the league office.",
+    "link": "https://careers.nba.com/internships/",
+    "states": [
+      "MD",
+      "VA",
+      "DC",
+      "MA"
+    ]
+  },
+  {
+    "id": 88,
+    "title": "Sports Management Intern",
+    "company": "NFL",
+    "location": "New York, NY / Multiple",
+    "major": [
+      "Sport and Fitness Management",
+      "Business Administration",
+      "MBA / Business"
+    ],
+    "year": [
+      "Sophomore",
+      "Junior"
+    ],
+    "description": "Work across the NFL's business operations, marketing, media, and community relations divisions.",
+    "link": "https://www.nfl.com/careers/internships",
+    "states": [
+      "MD",
+      "VA",
+      "DC"
+    ]
+  },
+  {
+    "id": 89,
+    "title": "Sports Business Intern",
+    "company": "ESPN",
+    "location": "Bristol, CT / Multiple",
+    "major": [
+      "Sport and Fitness Management",
+      "Business Administration",
+      "Broadcast Journalism"
+    ],
+    "year": [
+      "Sophomore",
+      "Junior"
+    ],
+    "description": "Support ESPN's business operations, programming, analytics, and sponsorship teams.",
+    "link": "https://jobs.disneycareers.com/search-jobs?q=ESPN+intern",
+    "states": [
+      "WA",
+      "Remote"
+    ]
+  },
+  {
+    "id": 90,
+    "title": "Hospitality Management Intern",
+    "company": "Marriott International",
+    "location": "Bethesda, MD / Multiple",
+    "major": [
+      "Hotel / Hospitality Management",
+      "Business Administration",
+      "MBA / Business"
+    ],
+    "year": [
+      "Sophomore",
+      "Junior"
+    ],
+    "description": "Rotate through hotel operations at one of the world's largest and most respected hotel brands.",
+    "link": "https://jobs.marriott.com/marriott/jobs?q=intern",
+    "states": [
+      "MD",
+      "DC",
+      "VA",
+      "TX",
+      "FL"
+    ]
+  },
+  {
+    "id": 91,
+    "title": "Hotel Operations Intern",
+    "company": "Hilton Hotels",
+    "location": "McLean, VA / Multiple",
+    "major": [
+      "Hotel / Hospitality Management",
+      "Business Administration"
+    ],
+    "year": [
+      "Sophomore",
+      "Junior"
+    ],
+    "description": "Gain hands-on experience across front desk, food & beverage, and hotel management operations.",
+    "link": "https://jobs.hilton.com/en/search-jobs/intern",
+    "states": [
+      "MD",
+      "DC",
+      "VA",
+      "TX",
+      "CA",
+      "FL"
+    ]
+  },
+  {
+    "id": 92,
+    "title": "Hospitality & Events Intern",
+    "company": "Hyatt Hotels",
+    "location": "Chicago, IL / Multiple",
+    "major": [
+      "Hotel / Hospitality Management",
+      "Business Administration"
+    ],
+    "year": [
+      "Sophomore",
+      "Junior"
+    ],
+    "description": "Support hotel operations, event planning, and guest experience at a global luxury hotel brand.",
+    "link": "https://careers.hyatt.com/en_US/careers/search-jobs/intern",
+    "states": [
+      "IL",
+      "CA",
+      "NY",
+      "TX"
+    ]
+  },
+  {
+    "id": 93,
+    "title": "Political Science / Policy Intern",
+    "company": "U.S. House of Representatives",
+    "location": "Washington, DC",
+    "major": [
+      "Political Science",
+      "Public Administration",
+      "International Relations",
+      "Sociology"
+    ],
+    "year": [
+      "Sophomore",
+      "Junior"
+    ],
+    "description": "Work directly in a Congressional office supporting legislation, constituent services, and policy research.",
+    "link": "https://www.house.gov/educators-and-students/college-internships",
+    "states": [
+      "DC",
+      "VA",
+      "MD"
+    ]
+  },
+  {
+    "id": 94,
+    "title": "Government Relations Intern",
+    "company": "Google",
+    "location": "Washington, DC",
+    "major": [
+      "Political Science",
+      "Public Administration",
+      "International Relations"
+    ],
+    "year": [
+      "Junior"
+    ],
+    "description": "Support Google's policy and government affairs team engaging with lawmakers and regulators.",
+    "link": "https://careers.google.com/jobs/results/?category=POLICY&employment_type=INTERN",
+    "states": [
+      "DC",
+      "VA",
+      "MD"
+    ]
+  },
+  {
+    "id": 95,
+    "title": "Public Policy Intern",
+    "company": "Brookings Institution",
+    "location": "Washington, DC",
+    "major": [
+      "Political Science",
+      "Public Administration",
+      "Economics",
+      "International Relations"
+    ],
+    "year": [
+      "Junior"
+    ],
+    "description": "Contribute to research and analysis on domestic and foreign policy at the nation's top think tank.",
+    "link": "https://www.brookings.edu/about-brookings/careers-internships/",
+    "states": [
+      "DC",
+      "VA",
+      "MD"
+    ]
+  },
+  {
+    "id": 96,
+    "title": "International Relations Intern",
+    "company": "United Nations",
+    "location": "New York, NY / Washington, DC",
+    "major": [
+      "International Relations",
+      "Political Science",
+      "Public Administration"
+    ],
+    "year": [
+      "Junior"
+    ],
+    "description": "Support global diplomacy, peace, and development programs at the world's leading international organization.",
+    "link": "https://www.un.org/en/about-us/internships",
+    "states": [
+      "NY"
+    ]
+  },
+  {
+    "id": 97,
+    "title": "Foreign Policy Research Intern",
+    "company": "Council on Foreign Relations",
+    "location": "New York, NY / Washington, DC",
+    "major": [
+      "International Relations",
+      "Political Science",
+      "Economics"
+    ],
+    "year": [
+      "Junior"
+    ],
+    "description": "Support research and publications on global policy, security, and economic issues.",
+    "link": "https://www.cfr.org/career-opportunities",
+    "states": [
+      "NY",
+      "DC"
+    ]
+  },
+  {
+    "id": 98,
+    "title": "Legal Intern / Law Clerk",
+    "company": "U.S. Department of Justice",
+    "location": "Washington, DC",
+    "major": [
+      "Legal Studies / Paralegal",
+      "Criminal Justice",
+      "Political Science"
+    ],
+    "year": [
+      "Junior"
+    ],
+    "description": "Support federal attorneys on civil rights, national security, and constitutional law matters.",
+    "link": "https://www.justice.gov/legal-careers/honors-program-and-internships",
+    "states": [
+      "DC",
+      "VA",
+      "MD"
+    ]
+  },
+  {
+    "id": 99,
+    "title": "Paralegal Intern",
+    "company": "Skadden, Arps, Slate, Meagher & Flom",
+    "location": "New York, NY / Multiple",
+    "major": [
+      "Legal Studies / Paralegal",
+      "Political Science"
+    ],
+    "year": [
+      "Junior"
+    ],
+    "description": "Support attorneys at one of the world's most prestigious law firms on M&A, litigation, and regulatory matters.",
+    "link": "https://www.skadden.com/careers",
+    "states": [
+      "NY",
+      "DC",
+      "VA"
+    ]
+  },
+  {
+    "id": 100,
+    "title": "Criminal Justice Research Intern",
+    "company": "FBI",
+    "location": "Washington, DC / Multiple",
+    "major": [
+      "Criminal Justice",
+      "Cyber/Computer Forensics",
+      "Political Science"
+    ],
+    "year": [
+      "Junior"
+    ],
+    "description": "Support federal investigations and law enforcement operations at the nation's top law enforcement agency.",
+    "link": "https://www.fbijobs.gov/working-at-fbi/internships",
+    "states": [
+      "DC",
+      "VA",
+      "MD"
+    ]
+  },
+  {
+    "id": 101,
+    "title": "Law Enforcement Intern",
+    "company": "U.S. Secret Service",
+    "location": "Washington, DC",
+    "major": [
+      "Criminal Justice",
+      "Political Science"
+    ],
+    "year": [
+      "Junior"
+    ],
+    "description": "Gain exposure to federal law enforcement, protective operations, and financial crimes investigation.",
+    "link": "https://www.secretservice.gov/careers/student-programs",
+    "states": [
+      "DC",
+      "VA",
+      "MD"
+    ]
+  },
+  {
+    "id": 102,
+    "title": "Public Administration Intern",
+    "company": "City of Washington, DC Government",
+    "location": "Washington, DC",
+    "major": [
+      "Public Administration",
+      "Political Science",
+      "Sociology",
+      "Social Work"
+    ],
+    "year": [
+      "Sophomore",
+      "Junior"
+    ],
+    "description": "Work inside city government supporting policy implementation, community programs, and civic operations.",
+    "link": "https://dchr.dc.gov/service/internships",
+    "states": [
+      "DC"
+    ]
+  },
+  {
+    "id": 103,
+    "title": "Nonprofit Management Intern",
+    "company": "Urban League",
+    "location": "Multiple Locations",
+    "major": [
+      "Public Administration",
+      "Social Work",
+      "Business Administration",
+      "Sociology"
+    ],
+    "year": [
+      "Sophomore",
+      "Junior"
+    ],
+    "description": "Support economic empowerment, civil rights, and workforce development programs for Black communities.",
+    "link": "https://nul.org/careers",
+    "states": [
+      "NY",
+      "VA",
+      "MD",
+      "DC",
+      "GA",
+      "TX"
+    ]
+  },
+  {
+    "id": 104,
+    "title": "Music Industry Intern",
+    "company": "Sony Music Entertainment",
+    "location": "New York, NY",
+    "major": [
+      "Music Management",
+      "Music Technology",
+      "Music",
+      "Business Administration"
+    ],
+    "year": [
+      "Sophomore",
+      "Junior"
+    ],
+    "description": "Work across A&R, marketing, distribution, and digital strategy at one of the world's top music companies.",
+    "link": "https://www.sonymusic.com/sonymusic/careers/",
+    "states": [
+      "NY"
+    ]
+  },
+  {
+    "id": 105,
+    "title": "Music Business Intern",
+    "company": "Universal Music Group",
+    "location": "New York, NY / Los Angeles, CA",
+    "major": [
+      "Music Management",
+      "Music",
+      "Business Administration",
+      "MBA / Business"
+    ],
+    "year": [
+      "Sophomore",
+      "Junior"
+    ],
+    "description": "Support artist development, label operations, and digital distribution at the world's largest music company.",
+    "link": "https://www.universalmusic.com/careers/",
+    "states": [
+      "NY",
+      "CA"
+    ]
+  },
+  {
+    "id": 106,
+    "title": "Music Production Intern",
+    "company": "Warner Music Group",
+    "location": "New York, NY / Los Angeles, CA",
+    "major": [
+      "Music Technology",
+      "Music",
+      "Music Management"
+    ],
+    "year": [
+      "Sophomore",
+      "Junior"
+    ],
+    "description": "Work in recording studios and production suites supporting artists and producers at a major label.",
+    "link": "https://www.wmg.com/careers",
+    "states": [
+      "NY",
+      "CA"
+    ]
+  },
+  {
+    "id": 107,
+    "title": "Audio Engineering Intern",
+    "company": "Spotify",
+    "location": "New York, NY / Remote",
+    "major": [
+      "Music Technology",
+      "Computer Science",
+      "Music"
+    ],
+    "year": [
+      "Junior"
+    ],
+    "description": "Work on audio quality, podcast production, and music technology at the world's largest streaming platform.",
+    "link": "https://www.lifeatspotify.com/jobs?l=new-york&q=intern",
+    "states": [
+      "NY",
+      "Remote"
+    ]
+  },
+  {
+    "id": 108,
+    "title": "Theatre Production Intern",
+    "company": "Disney Theatrical Group",
+    "location": "New York, NY",
+    "major": [
+      "Drama and Theatre Arts",
+      "Art / Art Studies"
+    ],
+    "year": [
+      "Sophomore",
+      "Junior"
+    ],
+    "description": "Work on the production teams behind Broadway shows including The Lion King, Aladdin, and Frozen.",
+    "link": "https://jobs.disneycareers.com/search-jobs?k=theatre+intern",
+    "states": [
+      "NY"
+    ]
+  },
+  {
+    "id": 109,
+    "title": "Creative Arts Intern",
+    "company": "Lincoln Center for the Performing Arts",
+    "location": "New York, NY",
+    "major": [
+      "Drama and Theatre Arts",
+      "Art / Art Studies",
+      "Music"
+    ],
+    "year": [
+      "Sophomore",
+      "Junior"
+    ],
+    "description": "Support programming, education, and community engagement at the world's leading performing arts center.",
+    "link": "https://www.lincolncenter.org/about/internships",
+    "states": [
+      "NY"
+    ]
+  },
+  {
+    "id": 110,
+    "title": "Graphic Design Intern",
+    "company": "Adobe",
+    "location": "San Jose, CA / Remote",
+    "major": [
+      "Digital Arts",
+      "Art / Art Studies"
+    ],
+    "year": [
+      "Sophomore",
+      "Junior"
+    ],
+    "description": "Work with Adobe's design teams on visual assets for Photoshop, Illustrator, and Creative Cloud.",
+    "link": "https://careers.adobe.com/us/en/search-results?keywords=design+intern",
+    "states": [
+      "CA",
+      "Remote"
+    ]
+  },
+  {
+    "id": 111,
+    "title": "Digital Design Intern",
+    "company": "Nike",
+    "location": "Beaverton, OR",
+    "major": [
+      "Digital Arts",
+      "Art / Art Studies",
+      "Marketing"
+    ],
+    "year": [
+      "Sophomore",
+      "Junior"
+    ],
+    "description": "Create compelling visual content and digital designs for Nike's brand and product campaigns.",
+    "link": "https://jobs.nike.com/teams/design",
+    "states": [
+      "OR"
+    ]
+  },
+  {
+    "id": 112,
+    "title": "Creative Design Intern",
+    "company": "Disney",
+    "location": "Burbank, CA / Orlando, FL",
+    "major": [
+      "Art / Art Studies",
+      "Digital Arts",
+      "Drama and Theatre Arts"
+    ],
+    "year": [
+      "Sophomore",
+      "Junior"
+    ],
+    "description": "Work alongside Disney's world-class creative teams on characters, storytelling, and brand visuals.",
+    "link": "https://jobs.disneycareers.com/search-jobs?k=design+intern",
+    "states": [
+      "CA",
+      "FL"
+    ]
+  },
+  {
+    "id": 113,
+    "title": "Aviation Intern",
+    "company": "Delta Air Lines",
+    "location": "Atlanta, GA / Multiple",
+    "major": [
+      "Aviation",
+      "Air Traffic Control"
+    ],
+    "year": [
+      "Sophomore",
+      "Junior"
+    ],
+    "description": "Gain hands-on experience in airline operations, flight planning, and airport management.",
+    "link": "https://jobs.delta.com/search-jobs/intern",
+    "states": [
+      "GA",
+      "NY",
+      "TX",
+      "CA"
+    ]
+  },
+  {
+    "id": 114,
+    "title": "Aviation Management Intern",
+    "company": "United Airlines",
+    "location": "Chicago, IL / Multiple",
+    "major": [
+      "Aviation",
+      "Air Traffic Control",
+      "Business Administration"
+    ],
+    "year": [
+      "Sophomore",
+      "Junior"
+    ],
+    "description": "Support airline operations, route planning, and fleet management at one of America's largest carriers.",
+    "link": "https://careers.united.com/us/en/search-results?keywords=intern",
+    "states": [
+      "IL",
+      "NY",
+      "CA",
+      "TX"
+    ]
+  },
+  {
+    "id": 115,
+    "title": "FAA Air Traffic Control Intern",
+    "company": "Federal Aviation Administration (FAA)",
+    "location": "Washington, DC / Multiple",
+    "major": [
+      "Air Traffic Control",
+      "Aviation"
+    ],
+    "year": [
+      "Junior"
+    ],
+    "description": "Train and work alongside FAA controllers managing the nation's airspace and ensuring safe air travel.",
+    "link": "https://www.faa.gov/jobs/working_here/student_programs",
+    "states": [
+      "DC",
+      "VA",
+      "MD",
+      "OK"
+    ]
+  },
+  {
+    "id": 116,
+    "title": "Parks & Recreation Intern",
+    "company": "National Park Service",
+    "location": "Multiple Locations",
+    "major": [
+      "Parks and Recreation",
+      "Biology",
+      "Environmental Science"
+    ],
+    "year": [
+      "Sophomore",
+      "Junior"
+    ],
+    "description": "Support conservation, visitor services, and park management at America's national parks.",
+    "link": "https://www.nps.gov/subjects/youthprograms/internships.htm",
+    "states": [
+      "DC",
+      "VA",
+      "MD",
+      "CA",
+      "WY",
+      "CO"
+    ]
+  },
+  {
+    "id": 117,
+    "title": "Recreation Management Intern",
+    "company": "Walt Disney World",
+    "location": "Orlando, FL",
+    "major": [
+      "Parks and Recreation",
+      "Hotel / Hospitality Management",
+      "Sport and Fitness Management"
+    ],
+    "year": [
+      "Sophomore",
+      "Junior"
+    ],
+    "description": "Support recreation operations and guest experience programs at the world's most visited theme park.",
+    "link": "https://jobs.disneycareers.com/search-jobs?q=recreation+intern",
+    "states": [
+      "FL"
+    ]
+  },
+  {
+    "id": 118,
+    "title": "Teaching Intern",
+    "company": "Teach For America",
+    "location": "Multiple Locations",
+    "major": [
+      "Elementary Education",
+      "Early Childhood Education",
+      "Physical Education",
+      "Music Teacher Education"
+    ],
+    "year": [
+      "Junior"
+    ],
+    "description": "Develop teaching skills while making an impact in under-resourced communities across the country.",
+    "link": "https://www.teachforamerica.org/what-we-offer",
+    "states": [
+      "NY",
+      "VA",
+      "MD",
+      "DC",
+      "TX",
+      "CA",
+      "Remote"
+    ]
+  },
+  {
+    "id": 119,
+    "title": "Education Program Intern",
+    "company": "Sesame Workshop",
+    "location": "New York, NY",
+    "major": [
+      "Early Childhood Education",
+      "Elementary Education",
+      "Psychology"
+    ],
+    "year": [
+      "Sophomore",
+      "Junior"
+    ],
+    "description": "Support early childhood education research and programming at the organization behind Sesame Street.",
+    "link": "https://www.sesameworkshop.org/who-we-are/careers",
+    "states": [
+      "NY"
+    ]
+  },
+  {
+    "id": 120,
+    "title": "Physical Education & Wellness Intern",
+    "company": "YMCA",
+    "location": "Multiple Locations",
+    "major": [
+      "Physical Education",
+      "Kinesiology and Exercise Science",
+      "Sport and Fitness Management"
+    ],
+    "year": [
+      "Sophomore",
+      "Junior"
+    ],
+    "description": "Design and lead fitness programs and wellness initiatives for diverse communities.",
+    "link": "https://www.ymca.org/who-we-are/careers",
+    "states": [
+      "NY",
+      "VA",
+      "MD",
+      "DC",
+      "CA",
+      "TX",
+      "IL"
+    ]
+  },
+  {
+    "id": 121,
+    "title": "History & Archives Intern",
+    "company": "Smithsonian Institution",
+    "location": "Washington, DC",
+    "major": [
+      "History",
+      "Liberal Arts",
+      "English"
+    ],
+    "year": [
+      "Sophomore",
+      "Junior"
+    ],
+    "description": "Research, catalog, and preserve artifacts and collections at the world's largest museum and research complex.",
+    "link": "https://www.si.edu/ofg/internships",
+    "states": [
+      "DC",
+      "VA",
+      "MD"
+    ]
+  },
+  {
+    "id": 122,
+    "title": "Research & Translation Intern",
+    "company": "U.S. Department of State",
+    "location": "Washington, DC",
+    "major": [
+      "Spanish",
+      "International Relations",
+      "Political Science"
+    ],
+    "year": [
+      "Junior"
+    ],
+    "description": "Support diplomatic communications, translation, and foreign policy research at America's top diplomatic agency.",
+    "link": "https://careers.state.gov/interns-fellows/student-internships/",
+    "states": [
+      "DC",
+      "VA",
+      "MD"
+    ]
+  },
+  {
+    "id": 123,
+    "title": "Bilingual Community Outreach Intern",
+    "company": "UnidosUS",
+    "location": "Washington, DC / Multiple",
+    "major": [
+      "Spanish",
+      "Social Work",
+      "Public Administration",
+      "Organizational Communication"
+    ],
+    "year": [
+      "Sophomore",
+      "Junior"
+    ],
+    "description": "Support programs empowering Latino communities through education, health, and economic opportunity.",
+    "link": "https://www.unidosus.org/about/careers/",
+    "states": [
+      "DC",
+      "VA",
+      "MD"
+    ]
+  },
+  {
+    "id": 124,
+    "title": "Religious Studies & Nonprofit Intern",
+    "company": "UNICEF USA",
+    "location": "New York, NY / Washington, DC",
+    "major": [
+      "Religion",
+      "Philosophy and Religious Studies",
+      "Social Work",
+      "International Relations"
+    ],
+    "year": [
+      "Sophomore",
+      "Junior"
+    ],
+    "description": "Support humanitarian programs and global advocacy for children's rights at UNICEF's US office.",
+    "link": "https://www.unicefusa.org/about/careers/internships",
+    "states": [
+      "NY",
+      "DC",
+      "VA",
+      "MD"
+    ]
+  },
+  {
+    "id": 125,
+    "title": "General Business Intern",
+    "company": "Target",
+    "location": "Multiple Locations",
+    "major": [
+      "General Studies",
+      "Liberal Arts",
+      "Business Administration"
+    ],
+    "year": [
+      "Sophomore",
+      "Junior"
+    ],
+    "description": "Gain broad exposure to retail operations, marketing, and business management at a Fortune 50 company.",
+    "link": "https://corporate.target.com/careers/students",
+    "states": [
+      "MN"
+    ]
+  },
+  {
+    "id": 126,
+    "title": "Software Engineering Intern",
+    "company": "Booz Allen Hamilton",
+    "location": "McLean, VA (Hybrid)",
+    "major": [
+      "Computer Science",
+      "Computer Engineering",
+      "Cyber/Computer Forensics",
+      "Information Science"
+    ],
+    "year": [
+      "Sophomore",
+      "Junior"
+    ],
+    "description": "Work on software and data solutions for federal government clients at one of the top defense consulting firms in the DMV.",
+    "link": "https://careers.boozallen.com/jobs/search?q=software+intern",
+    "states": [
+      "VA"
+    ]
+  },
+  {
+    "id": 127,
+    "title": "Cybersecurity Intern",
+    "company": "Booz Allen Hamilton",
+    "location": "McLean, VA (On-site)",
+    "major": [
+      "Cyber/Computer Forensics",
+      "Computer Science",
+      "Information Science"
+    ],
+    "year": [
+      "Sophomore",
+      "Junior"
+    ],
+    "description": "Support cyber threat detection and defense for government clients at a top national security consulting firm based in McLean, VA.",
+    "link": "https://careers.boozallen.com/jobs/search?q=cybersecurity+intern",
+    "states": [
+      "VA"
+    ]
+  },
+  {
+    "id": 128,
+    "title": "Technology Intern",
+    "company": "Leidos",
+    "location": "Reston, VA (Hybrid)",
+    "major": [
+      "Computer Science",
+      "Computer Engineering",
+      "Information Science",
+      "Engineering"
+    ],
+    "year": [
+      "Sophomore",
+      "Junior"
+    ],
+    "description": "Build tech solutions for defense, intelligence, and health markets at Leidos, one of Virginia's largest employers.",
+    "link": "https://careers.leidos.com/search/student+intern+jobs",
+    "states": [
+      "VA"
+    ]
+  },
+  {
+    "id": 129,
+    "title": "Data Analytics Intern",
+    "company": "Capital One",
+    "location": "McLean, VA (Hybrid)",
+    "major": [
+      "Computer Science",
+      "Mathematics",
+      "Information Science",
+      "Finance",
+      "Management Information Systems"
+    ],
+    "year": [
+      "Sophomore",
+      "Junior"
+    ],
+    "description": "Work on data pipelines and analytics tools at Capital One's headquarters in McLean \u2014 one of the most tech-forward banks in the country.",
+    "link": "https://www.capitalonecareers.com/search-jobs/intern/McLean",
+    "states": [
+      "VA"
+    ]
+  },
+  {
+    "id": 130,
+    "title": "Software Engineering Intern",
+    "company": "Capital One",
+    "location": "McLean, VA (Hybrid)",
+    "major": [
+      "Computer Science",
+      "Computer Engineering"
+    ],
+    "year": [
+      "Sophomore",
+      "Junior"
+    ],
+    "description": "Build real banking products used by millions at Capital One's tech-focused headquarters in McLean, VA.",
+    "link": "https://www.capitalonecareers.com/search-jobs/software+engineer+intern/McLean",
+    "states": [
+      "VA"
+    ]
+  },
+  {
+    "id": 131,
+    "title": "Finance & Accounting Intern",
+    "company": "Freddie Mac",
+    "location": "McLean, VA (Hybrid)",
+    "major": [
+      "Finance",
+      "Accounting",
+      "Economics",
+      "MBA / Business"
+    ],
+    "year": [
+      "Sophomore",
+      "Junior"
+    ],
+    "description": "Support financial analysis and reporting at Freddie Mac, one of the nation's largest mortgage finance companies headquartered in McLean.",
+    "link": "https://freddiemac.wd5.myworkdayjobs.com/External/jobs?q=intern",
+    "states": [
+      "VA"
+    ]
+  },
+  {
+    "id": 132,
+    "title": "Business Analyst Intern",
+    "company": "Fannie Mae",
+    "location": "Washington, DC (Hybrid)",
+    "major": [
+      "Business Administration",
+      "Finance",
+      "Economics",
+      "MBA / Business",
+      "Management Information Systems"
+    ],
+    "year": [
+      "Sophomore",
+      "Junior"
+    ],
+    "description": "Support housing finance research and business operations at Fannie Mae, headquartered in Washington DC.",
+    "link": "https://www.fanniemae.com/careers/our-roles/internships",
+    "states": [
+      "DC"
+    ]
+  },
+  {
+    "id": 133,
+    "title": "Political Science & Policy Intern",
+    "company": "U.S. House of Representatives",
+    "location": "Washington, DC (On-site)",
+    "major": [
+      "Political Science",
+      "Public Administration",
+      "International Relations",
+      "Sociology",
+      "Legal Studies / Paralegal"
+    ],
+    "year": [
+      "Sophomore",
+      "Junior"
+    ],
+    "description": "Work directly in a Congressional office supporting legislation, constituent services, and policy research on Capitol Hill.",
+    "link": "https://www.house.gov/educators-and-students/college-internships",
+    "states": [
+      "DC"
+    ]
+  },
+  {
+    "id": 134,
+    "title": "Government Relations Intern",
+    "company": "U.S. Senate",
+    "location": "Washington, DC (On-site)",
+    "major": [
+      "Political Science",
+      "Public Administration",
+      "International Relations",
+      "Communications",
+      "Organizational Communication"
+    ],
+    "year": [
+      "Sophomore",
+      "Junior"
+    ],
+    "description": "Support a U.S. Senator's office on policy research, constituent outreach, and legislative affairs in the nation's capital.",
+    "link": "https://www.senate.gov/senators/internships.htm",
+    "states": [
+      "DC"
+    ]
+  },
+  {
+    "id": 135,
+    "title": "Public Policy Intern",
+    "company": "Brookings Institution",
+    "location": "Washington, DC (Hybrid)",
+    "major": [
+      "Political Science",
+      "Public Administration",
+      "Economics",
+      "International Relations",
+      "Sociology"
+    ],
+    "year": [
+      "Junior"
+    ],
+    "description": "Contribute to research and analysis on domestic and foreign policy at the nation's top think tank in Washington DC.",
+    "link": "https://www.brookings.edu/about-brookings/careers-internships/",
+    "states": [
+      "DC"
+    ]
+  },
+  {
+    "id": 136,
+    "title": "Communications & Media Intern",
+    "company": "NPR",
+    "location": "Washington, DC (Hybrid)",
+    "major": [
+      "Journalism",
+      "Broadcast Journalism",
+      "Organizational Communication",
+      "Public Relations"
+    ],
+    "year": [
+      "Sophomore",
+      "Junior"
+    ],
+    "description": "Work behind the scenes at National Public Radio on news production, digital content, and communications strategy in DC.",
+    "link": "https://www.npr.org/about-npr/181953728/internship-overview",
+    "states": [
+      "DC"
+    ]
+  },
+  {
+    "id": 137,
+    "title": "Journalism Intern",
+    "company": "The Washington Post",
+    "location": "Washington, DC (On-site)",
+    "major": [
+      "Journalism",
+      "Broadcast Journalism",
+      "English",
+      "Organizational Communication"
+    ],
+    "year": [
+      "Sophomore",
+      "Junior"
+    ],
+    "description": "Research, report, and write stories under the mentorship of Pulitzer Prize-winning journalists at one of the world's most respected newspapers.",
+    "link": "https://careers.washingtonpost.com/jobs/search?search=intern",
+    "states": [
+      "DC"
+    ]
+  },
+  {
+    "id": 138,
+    "title": "Marketing & Communications Intern",
+    "company": "National Geographic",
+    "location": "Washington, DC (Hybrid)",
+    "major": [
+      "Marketing",
+      "Communications",
+      "Organizational Communication",
+      "Journalism",
+      "Digital Arts"
+    ],
+    "year": [
+      "Sophomore",
+      "Junior"
+    ],
+    "description": "Support brand storytelling, digital campaigns, and media production at National Geographic's DC headquarters.",
+    "link": "https://careers.nationalgeographic.com/",
+    "states": [
+      "DC"
+    ]
+  },
+  {
+    "id": 139,
+    "title": "Nonprofit Management Intern",
+    "company": "NAACP",
+    "location": "Baltimore, MD (On-site)",
+    "major": [
+      "Social Work",
+      "Political Science",
+      "Sociology",
+      "Public Administration",
+      "Business Administration"
+    ],
+    "year": [
+      "Sophomore",
+      "Junior"
+    ],
+    "description": "Support civil rights advocacy, research, and community programs at the NAACP's national headquarters in Baltimore, MD.",
+    "link": "https://naacp.org/about/careers",
+    "states": [
+      "MD"
+    ]
+  },
+  {
+    "id": 140,
+    "title": "Cybersecurity Intern",
+    "company": "NSA (National Security Agency)",
+    "location": "Fort Meade, MD (On-site)",
+    "major": [
+      "Cyber/Computer Forensics",
+      "Computer Science",
+      "Computer Engineering",
+      "Mathematics"
+    ],
+    "year": [
+      "Junior"
+    ],
+    "description": "Work on signals intelligence and cybersecurity missions at NSA's headquarters in Fort Meade, Maryland. Requires US citizenship.",
+    "link": "https://www.intelligencecareers.gov/nsa/nsastudents.html",
+    "states": [
+      "MD"
+    ]
+  },
+  {
+    "id": 141,
+    "title": "Biomedical Research Intern",
+    "company": "NIH (National Institutes of Health)",
+    "location": "Bethesda, MD (On-site)",
+    "major": [
+      "Biology",
+      "Biochemistry",
+      "Chemistry",
+      "Nursing",
+      "Psychology"
+    ],
+    "year": [
+      "Sophomore",
+      "Junior"
+    ],
+    "description": "Conduct cutting-edge biomedical research alongside world-class scientists at NIH's main campus in Bethesda, Maryland.",
+    "link": "https://www.training.nih.gov/programs/sip",
+    "states": [
+      "MD"
+    ]
+  },
+  {
+    "id": 142,
+    "title": "Public Health Intern",
+    "company": "Centers for Disease Control (CDC)",
+    "location": "Washington, DC / Remote",
+    "major": [
+      "Biology",
+      "Nursing",
+      "Psychology",
+      "Sociology",
+      "Public Administration"
+    ],
+    "year": [
+      "Junior"
+    ],
+    "description": "Support public health research, data analysis, and disease prevention programs at the CDC's DC office.",
+    "link": "https://www.cdc.gov/careers/students_graduates/internships.html",
+    "states": [
+      "DC",
+      "Remote"
+    ]
+  },
+  {
+    "id": 143,
+    "title": "Nursing Extern",
+    "company": "Johns Hopkins Hospital",
+    "location": "Baltimore, MD (On-site)",
+    "major": [
+      "Nursing"
+    ],
+    "year": [
+      "Sophomore",
+      "Junior"
+    ],
+    "description": "Gain hands-on clinical nursing experience at one of the world's most renowned hospitals located in Baltimore, Maryland.",
+    "link": "https://jobs.hopkinsmedicine.org/search-jobs/nursing+intern",
+    "states": [
+      "MD"
+    ]
+  },
+  {
+    "id": 144,
+    "title": "Healthcare Administration Intern",
+    "company": "MedStar Health",
+    "location": "Columbia, MD (Hybrid)",
+    "major": [
+      "Nursing",
+      "Biology",
+      "Business Administration",
+      "MBA / Business",
+      "Public Administration"
+    ],
+    "year": [
+      "Sophomore",
+      "Junior"
+    ],
+    "description": "Support healthcare operations and administration at MedStar, the largest healthcare provider in Maryland and DC.",
+    "link": "https://careers.medstar.org/us/en/search-results?keywords=intern",
+    "states": [
+      "MD",
+      "DC"
+    ]
+  },
+  {
+    "id": 145,
+    "title": "Engineering Intern",
+    "company": "Northrop Grumman",
+    "location": "Falls Church, VA (On-site)",
+    "major": [
+      "Engineering",
+      "Computer Engineering",
+      "Computer Science",
+      "Physics"
+    ],
+    "year": [
+      "Sophomore",
+      "Junior"
+    ],
+    "description": "Work on aerospace, defense, and cyber systems at Northrop Grumman's Virginia headquarters, one of the largest defense contractors in the world.",
+    "link": "https://www.northropgrumman.com/careers/student-programs/",
+    "states": [
+      "VA"
+    ]
+  },
+  {
+    "id": 146,
+    "title": "Systems Engineering Intern",
+    "company": "General Dynamics",
+    "location": "Fairfax, VA (On-site)",
+    "major": [
+      "Engineering",
+      "Computer Engineering",
+      "Computer Science",
+      "Information Science"
+    ],
+    "year": [
+      "Sophomore",
+      "Junior"
+    ],
+    "description": "Support defense and technology programs at General Dynamics' Fairfax, VA office serving federal government clients.",
+    "link": "https://www.gd.com/careers/students-and-new-graduates",
+    "states": [
+      "VA"
+    ]
+  },
+  {
+    "id": 147,
+    "title": "Finance Intern",
+    "company": "Lockheed Martin",
+    "location": "Bethesda, MD (Hybrid)",
+    "major": [
+      "Finance",
+      "Accounting",
+      "Business Administration",
+      "MBA / Business"
+    ],
+    "year": [
+      "Junior"
+    ],
+    "description": "Support corporate finance and financial planning at Lockheed Martin's headquarters in Bethesda, Maryland.",
+    "link": "https://www.lockheedmartinjobs.com/search-jobs/finance+intern/Bethesda",
+    "states": [
+      "MD"
+    ]
+  },
+  {
+    "id": 148,
+    "title": "Marketing & Events Intern",
+    "company": "Marriott International",
+    "location": "Bethesda, MD (Hybrid)",
+    "major": [
+      "Marketing",
+      "Business Administration",
+      "Hotel / Hospitality Management",
+      "MBA / Business"
+    ],
+    "year": [
+      "Sophomore",
+      "Junior"
+    ],
+    "description": "Support global marketing campaigns and event programming at Marriott's world headquarters in Bethesda, Maryland.",
+    "link": "https://jobs.marriott.com/marriott/jobs?q=intern&location=Bethesda",
+    "states": [
+      "MD"
+    ]
+  },
+  {
+    "id": 149,
+    "title": "Hospitality Management Intern",
+    "company": "Marriott International",
+    "location": "Bethesda, MD / Washington, DC (On-site)",
+    "major": [
+      "Hotel / Hospitality Management",
+      "Business Administration",
+      "MBA / Business"
+    ],
+    "year": [
+      "Sophomore",
+      "Junior"
+    ],
+    "description": "Rotate through hotel operations at Marriott's flagship DC-area properties, gaining hands-on hospitality management experience.",
+    "link": "https://jobs.marriott.com/marriott/jobs?q=intern",
+    "states": [
+      "MD",
+      "DC"
+    ]
+  },
+  {
+    "id": 150,
+    "title": "Social Work Intern",
+    "company": "DC Department of Human Services",
+    "location": "Washington, DC (On-site)",
+    "major": [
+      "Social Work",
+      "Psychology",
+      "Sociology",
+      "Public Administration"
+    ],
+    "year": [
+      "Junior"
+    ],
+    "description": "Support social services and community programs for DC residents through the District's human services agency.",
+    "link": "https://dhs.dc.gov/page/careers-dhs",
+    "states": [
+      "DC"
+    ]
+  },
+  {
+    "id": 151,
+    "title": "Urban Planning & Policy Intern",
+    "company": "DC Office of Planning",
+    "location": "Washington, DC (On-site)",
+    "major": [
+      "Public Administration",
+      "Political Science",
+      "Sociology",
+      "Engineering"
+    ],
+    "year": [
+      "Junior"
+    ],
+    "description": "Contribute to neighborhood planning, zoning policy, and community development projects across Washington DC.",
+    "link": "https://planning.dc.gov/service/internships",
+    "states": [
+      "DC"
+    ]
+  },
+  {
+    "id": 152,
+    "title": "International Affairs Intern",
+    "company": "U.S. Department of State",
+    "location": "Washington, DC (On-site)",
+    "major": [
+      "International Relations",
+      "Political Science",
+      "Spanish",
+      "Economics",
+      "Public Administration"
+    ],
+    "year": [
+      "Junior"
+    ],
+    "description": "Support U.S. diplomacy and foreign policy at the State Department's Foggy Bottom headquarters in Washington DC.",
+    "link": "https://careers.state.gov/interns-fellows/student-internships/",
+    "states": [
+      "DC"
+    ]
+  },
+  {
+    "id": 153,
+    "title": "Legal Intern",
+    "company": "U.S. Department of Justice",
+    "location": "Washington, DC (On-site)",
+    "major": [
+      "Legal Studies / Paralegal",
+      "Criminal Justice",
+      "Political Science"
+    ],
+    "year": [
+      "Junior"
+    ],
+    "description": "Support federal attorneys on civil rights, antitrust, and constitutional law matters at the DOJ's Pennsylvania Avenue headquarters.",
+    "link": "https://www.justice.gov/legal-careers/honors-program-and-internships",
+    "states": [
+      "DC"
+    ]
+  },
+  {
+    "id": 154,
+    "title": "Accounting & Audit Intern",
+    "company": "KPMG",
+    "location": "Washington, DC / McLean, VA (Hybrid)",
+    "major": [
+      "Accounting",
+      "Accounting and Finance",
+      "Finance",
+      "MBA / Business"
+    ],
+    "year": [
+      "Junior"
+    ],
+    "description": "Work on audit and tax engagements for major clients at KPMG's DC and Northern Virginia offices.",
+    "link": "https://jobs.kpmg.us/KPMG/go/Washington-DC-Internships/8506200/",
+    "states": [
+      "DC",
+      "VA"
+    ]
+  },
+  {
+    "id": 155,
+    "title": "Audit Intern",
+    "company": "PwC",
+    "location": "Washington, DC / Baltimore, MD (Hybrid)",
+    "major": [
+      "Accounting",
+      "Finance",
+      "MBA / Business"
+    ],
+    "year": [
+      "Junior"
+    ],
+    "description": "Assist with financial audits and advisory services for government contractors and corporations at PwC's DC-area offices.",
+    "link": "https://jobs.us.pwc.com/search-jobs/Washington%20DC",
+    "states": [
+      "DC",
+      "MD"
+    ]
+  },
+  {
+    "id": 156,
+    "title": "Sports Management Intern",
+    "company": "Washington Commanders (NFL)",
+    "location": "Landover, MD (On-site)",
+    "major": [
+      "Sport and Fitness Management",
+      "Business Administration",
+      "Marketing",
+      "MBA / Business"
+    ],
+    "year": [
+      "Sophomore",
+      "Junior"
+    ],
+    "description": "Support business operations, marketing, and fan experience for the NFL's Washington Commanders at FedEx Field in Landover, MD.",
+    "link": "https://www.commanders.com/team/front-office/careers/",
+    "states": [
+      "MD"
+    ]
+  },
+  {
+    "id": 157,
+    "title": "Sports Business Intern",
+    "company": "Washington Nationals (MLB)",
+    "location": "Washington, DC (On-site)",
+    "major": [
+      "Sport and Fitness Management",
+      "Business Administration",
+      "Marketing",
+      "Communications"
+    ],
+    "year": [
+      "Sophomore",
+      "Junior"
+    ],
+    "description": "Work across ticket sales, marketing, and community relations for DC's MLB team at Nationals Park.",
+    "link": "https://www.mlb.com/nationals/team/jobs",
+    "states": [
+      "DC"
+    ]
+  },
+  {
+    "id": 158,
+    "title": "Marketing Intern",
+    "company": "Under Armour",
+    "location": "Baltimore, MD (Hybrid)",
+    "major": [
+      "Marketing",
+      "Business Administration",
+      "MBA / Business",
+      "Communications"
+    ],
+    "year": [
+      "Sophomore",
+      "Junior"
+    ],
+    "description": "Support brand campaigns and athlete marketing at Under Armour's global headquarters in Baltimore, Maryland.",
+    "link": "https://careers.underarmour.com/search/?q=intern",
+    "states": [
+      "MD"
+    ]
+  },
+  {
+    "id": 159,
+    "title": "Business Development Intern",
+    "company": "Under Armour",
+    "location": "Baltimore, MD (Hybrid)",
+    "major": [
+      "Business Administration",
+      "MBA / Business",
+      "Finance",
+      "Marketing"
+    ],
+    "year": [
+      "Junior"
+    ],
+    "description": "Support global partnerships and business strategy at Under Armour's Baltimore HQ \u2014 one of the top sportswear brands in the world.",
+    "link": "https://careers.underarmour.com/search/?q=intern",
+    "states": [
+      "MD"
+    ]
+  },
+  {
+    "id": 160,
+    "title": "Museum & Archives Intern",
+    "company": "Smithsonian Institution",
+    "location": "Washington, DC (On-site)",
+    "major": [
+      "History",
+      "Liberal Arts",
+      "Art / Art Studies",
+      "English",
+      "Sociology and Anthropology"
+    ],
+    "year": [
+      "Sophomore",
+      "Junior"
+    ],
+    "description": "Research, catalog, and preserve collections at the world's largest museum complex spanning 19 museums on the National Mall.",
+    "link": "https://www.si.edu/ofg/internships",
+    "states": [
+      "DC"
+    ]
+  },
+  {
+    "id": 161,
+    "title": "Curatorial & Digital Arts Intern",
+    "company": "National Gallery of Art",
+    "location": "Washington, DC (On-site)",
+    "major": [
+      "Art / Art Studies",
+      "Digital Arts",
+      "History",
+      "Liberal Arts"
+    ],
+    "year": [
+      "Sophomore",
+      "Junior"
+    ],
+    "description": "Support curatorial research, exhibitions, and digital collections at one of the world's premier art museums on the National Mall.",
+    "link": "https://www.nga.gov/education/students/internships.html",
+    "states": [
+      "DC"
+    ]
+  },
+  {
+    "id": 162,
+    "title": "Drama & Theatre Production Intern",
+    "company": "Kennedy Center for the Performing Arts",
+    "location": "Washington, DC (On-site)",
+    "major": [
+      "Drama and Theatre Arts",
+      "Music",
+      "Art / Art Studies",
+      "Organizational Communication"
+    ],
+    "year": [
+      "Sophomore",
+      "Junior"
+    ],
+    "description": "Work alongside production teams at America's national cultural center for the performing arts on the DC waterfront.",
+    "link": "https://www.kennedy-center.org/education/opportunities-for-artists/internships/",
+    "states": [
+      "DC"
+    ]
+  },
+  {
+    "id": 163,
+    "title": "Music Industry Intern",
+    "company": "Kennedy Center for the Performing Arts",
+    "location": "Washington, DC (On-site)",
+    "major": [
+      "Music",
+      "Music Management",
+      "Music Technology",
+      "Music Teacher Education"
+    ],
+    "year": [
+      "Sophomore",
+      "Junior"
+    ],
+    "description": "Support programming, artist relations, and music education initiatives at the Kennedy Center, one of the busiest performing arts centers in the world.",
+    "link": "https://www.kennedy-center.org/education/opportunities-for-artists/internships/",
+    "states": [
+      "DC"
+    ]
+  },
+  {
+    "id": 164,
+    "title": "Education Program Intern",
+    "company": "National Education Association (NEA)",
+    "location": "Washington, DC (Hybrid)",
+    "major": [
+      "Elementary Education",
+      "Early Childhood Education",
+      "Public Administration",
+      "Sociology"
+    ],
+    "year": [
+      "Junior"
+    ],
+    "description": "Support education policy advocacy and member programs at the nation's largest education labor union.",
+    "link": "https://www.nea.org/about-nea/jobs-nea",
+    "states": [
+      "DC"
+    ]
+  },
+  {
+    "id": 165,
+    "title": "Aviation Operations Intern",
+    "company": "FAA (Federal Aviation Administration)",
+    "location": "Washington, DC (On-site)",
+    "major": [
+      "Aviation",
+      "Air Traffic Control",
+      "Engineering",
+      "Computer Science"
+    ],
+    "year": [
+      "Sophomore",
+      "Junior"
+    ],
+    "description": "Train alongside FAA professionals managing the nation's airspace at the FAA's headquarters in Washington DC.",
+    "link": "https://www.faa.gov/jobs/working_here/student_programs",
+    "states": [
+      "DC",
+      "VA",
+      "MD"
+    ]
+  }
+]

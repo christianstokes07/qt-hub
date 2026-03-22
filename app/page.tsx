@@ -1,65 +1,237 @@
+"use client";
+
+import Link from "next/link";
 import Image from "next/image";
+import { useState } from "react";
+
+const ARCHIVO  = { fontFamily: "'Poppins', sans-serif", fontWeight: 700 };
+const PLAYFAIR = { fontFamily: "'Playfair Display', serif" };
+const DM       = { fontFamily: "'DM Sans', sans-serif" };
 
 export default function Home() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
+    <main className="min-h-screen bg-white" style={DM}>
+
+      {/* ── Navbar ── */}
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-pink-100 shadow-sm">
+        <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+
+          <Link href="/">
+            <Image src="/QTlogo.png" alt="QT Hub" width={120} height={40} className="object-contain" priority />
+          </Link>
+
+          {/* Desktop Links */}
+          <ul className="hidden md:flex items-center gap-8 list-none">
+            <li>
+              <Link href="/internships" className="text-gray-600 hover:text-pink-500 font-medium transition-colors duration-200">
+                Internships
+              </Link>
+            </li>
+            <li>
+              <Link href="/scholarships" className="text-gray-600 hover:text-pink-500 font-medium transition-colors duration-200">
+                Scholarships
+              </Link>
+            </li>
+            <li>
+              <Link href="/resources" className="text-gray-600 hover:text-pink-500 font-medium transition-colors duration-200">
+                Resources
+              </Link>
+            </li>
+            <li>
+  <Link href="/about" className="text-gray-600 hover:text-pink-500 font-medium transition-colors duration-200">
+    About
+  </Link>
+</li>
+            <li>
+              <Link href="/internships" className="bg-pink-400 hover:bg-pink-500 text-white font-semibold px-5 py-2 rounded-full transition-colors duration-200 text-sm">
+                Get Started
+              </Link>
+            </li>
+          </ul>
+
+          {/* Mobile Hamburger */}
+          <button
+            className="md:hidden text-gray-700 focus:outline-none"
+            onClick={() => setMenuOpen(!menuOpen)}
+            aria-label="Toggle menu"
+          >
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+              {menuOpen
+                ? <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                : <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />}
+            </svg>
+          </button>
+        </div>
+
+        {/* Mobile Menu */}
+        {menuOpen && (
+          <div className="md:hidden bg-white border-t border-pink-100 px-6 py-4 flex flex-col gap-4">
+            <Link href="/internships" className="text-gray-700 font-medium hover:text-pink-500" onClick={() => setMenuOpen(false)}>Internships</Link>
+            <Link href="/scholarships" className="text-gray-700 font-medium hover:text-pink-500" onClick={() => setMenuOpen(false)}>Scholarships</Link>
+            <Link href="/resources" className="text-gray-700 font-medium hover:text-pink-500" onClick={() => setMenuOpen(false)}>Resources</Link>
+            <Link href="/about" className="text-gray-700 font-medium hover:text-pink-500" onClick={() => setMenuOpen(false)}>
+  About
+</Link>
+            <Link href="/internships" className="bg-pink-400 text-white font-semibold px-5 py-2 rounded-full text-center hover:bg-pink-500 transition-colors" onClick={() => setMenuOpen(false)}>Get Started</Link>
+          </div>
+        )}
+      </nav>
+
+      {/* ── Hero ── */}
+      <section className="pt-36 pb-24 px-6 text-center relative overflow-hidden">
+        {/* Skyline photo */}
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: "url('/hero-bg.jpg')" }}
         />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
+        {/* Pink gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-gray-900/80 via-pink-900/60 to-white" />
+
+        <div className="max-w-3xl mx-auto relative z-10">
+          <span className="inline-block bg-white/80 backdrop-blur-sm text-pink-600 text-sm font-medium px-4 py-1.5 rounded-full mb-6 tracking-wide">
+            🎓 For Hampton University Students
+          </span>
+          <h1 className="text-5xl md:text-6xl text-white leading-tight mb-6 uppercase tracking-tight" style={ARCHIVO}>
+            Find Your{" "}
+            <span className="text-pink-400">Dream Internship</span>
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+          <p className="text-lg md:text-xl text-white leading-relaxed max-w-2xl mx-auto mb-10">
+            QT Hub is built for Hampton University sophomores and juniors.
+            Browse curated internship opportunities, filter by your major, and
+            take the next step in your career — all in one place.
           </p>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <Link href="/internships" className="bg-pink-400 hover:bg-pink-500 text-white font-semibold px-8 py-4 rounded-full text-lg transition-all duration-200 shadow-md hover:shadow-lg hover:-translate-y-0.5">
+              Browse Internships →
+            </Link>
+            <Link href="/scholarships" className="bg-white/20 backdrop-blur-sm border border-white/50 text-white hover:bg-white/30 font-semibold px-8 py-4 rounded-full text-lg transition-all duration-200">
+              Find Scholarships →
+            </Link>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+      {/* ── Stats Strip ── */}
+      <section className="py-12 bg-white border-y border-gray-100">
+        <div className="max-w-4xl mx-auto px-6 grid grid-cols-4 divide-x divide-gray-200 text-center">
+          {[
+            { value: "165+", label: "Internships" },
+{ value: "55+",  label: "Scholarships" },
+{ value: "50+",  label: "Companies" },
+{ value: "HU",   label: "Students Only" },
+          ].map((stat) => (
+            <div key={stat.label} className="px-4">
+              <p className="text-3xl text-gray-900" style={ARCHIVO}>{stat.value}</p>
+              <p className="text-sm text-gray-500 mt-1">{stat.label}</p>
+            </div>
+          ))}
         </div>
-      </main>
-    </div>
+      </section>
+
+      {/* ── Meet the Founder ── */}
+      <section className="py-20 px-6 bg-white">
+        <div className="max-w-5xl mx-auto">
+          <div className="flex flex-col md:flex-row items-center gap-12">
+            <div className="shrink-0">
+              <div className="relative w-64 h-64 md:w-80 md:h-80">
+                <div className="absolute inset-0 rounded-full border-4 border-pink-200 scale-105" />
+                <div className="absolute -bottom-3 -right-3 w-16 h-16 rounded-full bg-pink-100 z-0" />
+                <div className="w-full h-full rounded-full z-10 relative overflow-hidden border-4 border-white shadow-lg">
+                  <Image src="/founder.jpg" alt="Founder" fill className="object-cover object-top" />
+                </div>
+              </div>
+            </div>
+            <div className="text-center md:text-left">
+              <p className="text-pink-500 font-medium text-sm uppercase tracking-widest mb-3">Meet the Founder</p>
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 leading-snug" style={PLAYFAIR}>
+                Built by an HU student,{"\u00A0\u00A0"}
+                <em className="text-pink-400">for HU students.</em>
+              </h2>
+              <p className="text-gray-500 leading-relaxed mb-4" style={PLAYFAIR}>
+                Abi Moyosore is a 2nd year in the 5-year MBA program at Hampton University,
+                originally from Richmond, Virginia — and she&apos;s vying to be your Junior Class President.
+              </p>
+              <p className="text-gray-500 leading-relaxed mb-4" style={PLAYFAIR}>
+                QT Hub was created out of a simple frustration — internship opportunities
+                existed, but they weren&apos;t easy to find in one place for Hampton University
+                students. So she built it herself.
+              </p>
+              <p className="text-gray-500 leading-relaxed mb-6" style={PLAYFAIR}>
+                As a sophomore or junior navigating recruitment season, you deserve a
+                platform that actually understands your journey. QT Hub is that platform.
+              </p>
+              <div className="inline-flex items-center gap-2">
+                <div className="h-px w-8 bg-pink-300" />
+                <span className="text-gray-700 font-semibold text-lg italic" style={PLAYFAIR}>
+                  Abi Moyosore, Hampton University &rsquo;26
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Feature Cards ── */}
+      <section className="py-20 px-6 bg-gray-50">
+        <div className="max-w-5xl mx-auto">
+          <p className="text-center text-pink-500 font-medium text-sm uppercase tracking-widest mb-3">Why QT Hub</p>
+          <h2 className="text-3xl md:text-4xl text-gray-900 text-center mb-12 uppercase tracking-tight" style={ARCHIVO}>
+            Everything you need to get started
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {[
+              { icon: "🎯", title: "Curated for HU", body: "Every listing is hand-picked for Hampton University sophomores and juniors — no irrelevant noise." },
+              { icon: "🏆", title: "Scholarships Too", body: "Browse 55+ scholarships filtered by your major, class year, and deadline — all in one place." },
+              { icon: "📄", title: "Career Resources", body: "Access resume tips, interview guides, and career advice built specifically for HU students." },
+            ].map((card) => (
+              <div key={card.title} className="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-200">
+                <div className="text-3xl mb-4">{card.icon}</div>
+                <h3 className="text-lg text-gray-900 mb-2 uppercase tracking-tight" style={ARCHIVO}>{card.title}</h3>
+                <p className="text-gray-500 text-sm leading-relaxed">{card.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── CTA Banner ── */}
+      <section className="py-20 px-6 bg-white">
+        <div className="max-w-2xl mx-auto text-center bg-gradient-to-br from-pink-50 to-rose-50 rounded-3xl p-10 border border-pink-100 shadow-sm">
+          <h2 className="text-3xl text-gray-900 mb-4 uppercase tracking-tight" style={ARCHIVO}>
+            Ready to find your fit? ✨
+          </h2>
+          <p className="text-gray-500 mb-8 leading-relaxed">
+            Hundreds of HU students have already found internships and scholarships through QT Hub.
+            Your next opportunity is one click away.
+          </p>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <Link href="/internships" className="inline-block bg-pink-400 hover:bg-pink-500 text-white font-semibold px-8 py-4 rounded-full text-lg transition-all duration-200 shadow-md hover:shadow-lg hover:-translate-y-0.5">
+              Browse Internships →
+            </Link>
+            <Link href="/scholarships" className="inline-block border border-pink-300 text-pink-500 hover:bg-pink-50 font-semibold px-8 py-4 rounded-full text-lg transition-all duration-200">
+              Find Scholarships →
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Footer ── */}
+      <footer className="border-t border-gray-100 py-8 px-6">
+        <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-gray-400">
+          <Link href="/">
+            <Image src="/QTlogo.png" alt="QT Hub" width={80} height={28} className="object-contain" />
+          </Link>
+          <div className="flex gap-6">
+            <Link href="/internships" className="hover:text-pink-400 transition-colors">Internships</Link>
+            <Link href="/scholarships" className="hover:text-pink-400 transition-colors">Scholarships</Link>
+            <Link href="/resources" className="hover:text-pink-400 transition-colors">Resources</Link>
+          </div>
+          <p>© 2025 QT Hub · Made for Hampton University</p>
+        </div>
+      </footer>
+
+    </main>
   );
 }
