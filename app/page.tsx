@@ -118,7 +118,7 @@ export default function Home() {
         <div className="max-w-4xl mx-auto px-6 grid grid-cols-4 divide-x divide-gray-200 text-center">
           {[
             { value: "165+", label: "Internships" },
-{ value: "55+",  label: "Scholarships" },
+{ value: "30+",  label: "Scholarships" },
 { value: "50+",  label: "Companies" },
 { value: "HU",   label: "Students Only" },
           ].map((stat) => (
@@ -183,7 +183,7 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
               { icon: "🎯", title: "Curated for HU", body: "Every listing is hand-picked for Hampton University sophomores and juniors — no irrelevant noise." },
-              { icon: "🏆", title: "Scholarships Too", body: "Browse 55+ scholarships filtered by your major, class year, and deadline — all in one place." },
+              { icon: "🏆", title: "Scholarships Too", body: "Browse 30+ scholarships filtered by your major, class year, and deadline — all in one place." },
               { icon: "📄", title: "Career Resources", body: "Access resume tips, interview guides, and career advice built specifically for HU students." },
             ].map((card) => (
               <div key={card.title} className="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-200">
