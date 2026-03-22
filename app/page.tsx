@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
+import Navbar from "@/components/Navbar";
 
 const ARCHIVO  = { fontFamily: "'Poppins', sans-serif", fontWeight: 700 };
 const PLAYFAIR = { fontFamily: "'Playfair Display', serif" };
@@ -15,69 +16,7 @@ export default function Home() {
     <main className="min-h-screen bg-white" style={DM}>
 
       {/* ── Navbar ── */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-pink-100 shadow-sm">
-        <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-
-          <Link href="/">
-            <Image src="/QTlogo.png" alt="QT Hub" width={120} height={40} className="object-contain" priority />
-          </Link>
-
-          {/* Desktop Links */}
-          <ul className="hidden md:flex items-center gap-8 list-none">
-            <li>
-              <Link href="/internships" className="text-gray-600 hover:text-pink-500 font-medium transition-colors duration-200">
-                Internships
-              </Link>
-            </li>
-            <li>
-              <Link href="/scholarships" className="text-gray-600 hover:text-pink-500 font-medium transition-colors duration-200">
-                Scholarships
-              </Link>
-            </li>
-            <li>
-              <Link href="/resources" className="text-gray-600 hover:text-pink-500 font-medium transition-colors duration-200">
-                Resources
-              </Link>
-            </li>
-            <li>
-  <Link href="/about" className="text-gray-600 hover:text-pink-500 font-medium transition-colors duration-200">
-    About
-  </Link>
-</li>
-            <li>
-              <Link href="/internships" className="bg-pink-400 hover:bg-pink-500 text-white font-semibold px-5 py-2 rounded-full transition-colors duration-200 text-sm">
-                Get Started
-              </Link>
-            </li>
-          </ul>
-
-          {/* Mobile Hamburger */}
-          <button
-            className="md:hidden text-gray-700 focus:outline-none"
-            onClick={() => setMenuOpen(!menuOpen)}
-            aria-label="Toggle menu"
-          >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
-              {menuOpen
-                ? <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-                : <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />}
-            </svg>
-          </button>
-        </div>
-
-        {/* Mobile Menu */}
-        {menuOpen && (
-          <div className="md:hidden bg-white border-t border-pink-100 px-6 py-4 flex flex-col gap-4">
-            <Link href="/internships" className="text-gray-700 font-medium hover:text-pink-500" onClick={() => setMenuOpen(false)}>Internships</Link>
-            <Link href="/scholarships" className="text-gray-700 font-medium hover:text-pink-500" onClick={() => setMenuOpen(false)}>Scholarships</Link>
-            <Link href="/resources" className="text-gray-700 font-medium hover:text-pink-500" onClick={() => setMenuOpen(false)}>Resources</Link>
-            <Link href="/about" className="text-gray-700 font-medium hover:text-pink-500" onClick={() => setMenuOpen(false)}>
-  About
-</Link>
-            <Link href="/internships" className="bg-pink-400 text-white font-semibold px-5 py-2 rounded-full text-center hover:bg-pink-500 transition-colors" onClick={() => setMenuOpen(false)}>Get Started</Link>
-          </div>
-        )}
-      </nav>
+      <Navbar />
 
       {/* ── Hero ── */}
       <section className="pt-36 pb-24 px-6 text-center relative overflow-hidden">

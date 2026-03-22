@@ -2,7 +2,8 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
+import { SignInButton, useUser, useClerk } from "@clerk/nextjs";
 
 type Props = {
   active?: "internships" | "scholarships" | "resources" | "about";
@@ -10,6 +11,20 @@ type Props = {
 
 export default function Navbar({ active }: Props) {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const { isSignedIn, user } = useUser();
+  const { signOut, openUserProfile } = useClerk();
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handler = (e: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+        setDropdownOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handler);
+    return () => document.removeEventListener("mousedown", handler);
+  }, []);
 
   const links = [
     { href: "/internships", label: "Internships" },
@@ -40,6 +55,57 @@ export default function Navbar({ active }: Props) {
               {link.label}
             </Link>
           ))}
+
+          {isSignedIn ? (
+            <div className="relative" ref={dropdownRef}>
+              <button
+                onClick={() => setDropdownOpen(!dropdownOpen)}
+                className="flex items-center gap-2 focus:outline-none"
+              >
+                <div className="w-9 h-9 rounded-full bg-pink-100 border-2 border-pink-300 flex items-center justify-center text-pink-500 font-bold text-sm hover:border-pink-400 transition-colors">
+                  {user?.firstName?.charAt(0) || user?.emailAddresses[0]?.emailAddress?.charAt(0)?.toUpperCase() || "?"}
+                </div>
+              </button>
+
+              {dropdownOpen && (
+                <div className="absolute right-0 mt-2 w-52 bg-white rounded-2xl shadow-lg border border-gray-100 py-2 z-50">
+                  <div className="px-4 py-2 border-b border-gray-100 mb-1">
+                    <p className="text-sm font-semibold text-gray-900 truncate">{user?.firstName} {user?.lastName}</p>
+                    <p className="text-xs text-gray-400 truncate">{user?.emailAddresses[0]?.emailAddress}</p>
+                  </div>
+                  <Link href="/for-you" onClick={() => setDropdownOpen(false)} className="flex items-center px-4 py-2.5 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-500 transition-colors">
+                    For You
+                  </Link>
+                  <Link href="/saved" onClick={() => setDropdownOpen(false)} className="flex items-center px-4 py-2.5 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-500 transition-colors">
+                    My Saved
+                  </Link>
+                  <Link href="/profile" onClick={() => setDropdownOpen(false)} className="flex items-center px-4 py-2.5 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-500 transition-colors">
+                    My Profile
+                  </Link>
+                  <button
+                    onClick={() => { openUserProfile(); setDropdownOpen(false); }}
+                    className="flex items-center w-full px-4 py-2.5 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-500 transition-colors"
+                  >
+                    Manage Account
+                  </button>
+                  <div className="border-t border-gray-100 mt-1 pt-1">
+                    <button
+                      onClick={() => signOut()}
+                      className="flex items-center w-full px-4 py-2.5 text-sm text-gray-500 hover:bg-gray-50 hover:text-gray-700 transition-colors"
+                    >
+                      Sign Out
+                    </button>
+                  </div>
+                </div>
+              )}
+            </div>
+          ) : (
+            <SignInButton mode="modal">
+              <button className="bg-pink-400 hover:bg-pink-500 text-white font-semibold px-5 py-2 rounded-full text-sm transition-colors">
+                Sign In
+              </button>
+            </SignInButton>
+          )}
         </div>
 
         {/* Mobile Hamburger */}
@@ -73,13 +139,21 @@ export default function Navbar({ active }: Props) {
               {link.label}
             </Link>
           ))}
-          <Link
-            href="/internships"
-            className="bg-pink-400 text-white font-semibold px-5 py-2 rounded-full text-center hover:bg-pink-500 transition-colors"
-            onClick={() => setMenuOpen(false)}
-          >
-            Get Started
-          </Link>
+          {isSignedIn ? (
+            <div className="border-t border-gray-100 pt-2 flex flex-col gap-3">
+              <Link href="/for-you" className="text-gray-700 font-medium hover:text-pink-500" onClick={() => setMenuOpen(false)}>For You</Link>
+              <Link href="/saved" className="text-gray-700 font-medium hover:text-pink-500" onClick={() => setMenuOpen(false)}>My Saved</Link>
+              <Link href="/profile" className="text-gray-700 font-medium hover:text-pink-500" onClick={() => setMenuOpen(false)}>My Profile</Link>
+              <button onClick={() => { openUserProfile(); setMenuOpen(false); }} className="text-left text-gray-700 font-medium hover:text-pink-500">Manage Account</button>
+              <button onClick={() => signOut()} className="text-left text-gray-500 font-medium hover:text-gray-700">Sign Out</button>
+            </div>
+          ) : (
+            <SignInButton mode="modal">
+              <button className="bg-pink-400 text-white font-semibold px-5 py-2 rounded-full text-center hover:bg-pink-500 transition-colors">
+                Sign In
+              </button>
+            </SignInButton>
+          )}
         </div>
       )}
     </nav>

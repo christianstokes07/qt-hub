@@ -1,10 +1,12 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import scholarshipData from "@/data/scholarships.json";
 import Navbar from "@/components/Navbar";
+import { useUser } from "@clerk/nextjs";
+import { supabase } from "@/lib/supabase";
 
 const POPPINS = { fontFamily: "'Poppins', sans-serif", fontWeight: 700 };
 const DM      = { fontFamily: "'DM Sans', sans-serif" };
@@ -39,6 +41,72 @@ type Scholarship = {
   description: string;
   link: string;
 };
+
+// ── Heart Button Component ──
+function SaveButton({ itemId, title, companyOrOrg, link, deadline }: {
+  itemId: string;
+  title: string;
+  companyOrOrg: string;
+  link: string;
+  deadline?: string;
+}) {
+  const { user, isSignedIn } = useUser();
+  const [saved, setSaved] = useState(false);
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    if (!isSignedIn || !user) return;
+    supabase
+      .from("favorites")
+      .select("id")
+      .eq("user_id", user.id)
+      .eq("item_id", itemId)
+      .eq("item_type", "scholarship")
+      .maybeSingle()
+      .then(({ data }) => setSaved(!!data));
+  }, [isSignedIn, user, itemId]);
+
+  const toggle = async (e: React.MouseEvent) => {
+    e.preventDefault();
+    if (!isSignedIn || !user) {
+      alert("Please sign in to save favorites.");
+      return;
+    }
+    setLoading(true);
+    if (saved) {
+      await supabase.from("favorites").delete()
+        .eq("user_id", user.id)
+        .eq("item_id", itemId)
+        .eq("item_type", "scholarship");
+      setSaved(false);
+    } else {
+      await supabase.from("favorites").insert({
+        user_id: user.id,
+        item_id: itemId,
+        item_type: "scholarship",
+        title,
+        company_or_org: companyOrOrg,
+        link,
+        deadline: deadline || "Rolling",
+      });
+      setSaved(true);
+    }
+    setLoading(false);
+  };
+
+  return (
+    <button
+      onClick={toggle}
+      disabled={loading}
+      className={`p-1.5 rounded-full transition-all duration-200 ${saved ? "text-pink-500" : "text-gray-300 hover:text-pink-400"}`}
+      title={saved ? "Remove from saved" : "Save"}
+    >
+      <svg className="w-5 h-5" fill={saved ? "currentColor" : "none"} stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+      </svg>
+    </button>
+  );
+}
 
 export default function ScholarshipsPage() {
   const [search, setSearch] = useState("");
@@ -156,11 +224,20 @@ export default function ScholarshipsPage() {
                 <div className="p-6 flex-1">
                   <div className="flex items-start justify-between gap-2 mb-3">
                     <p className="text-pink-500 font-semibold text-sm leading-tight">{s.organization}</p>
-                    {isDeadlineSoon(s.deadline) && (
-                      <span className="text-xs bg-red-50 text-red-500 border border-red-100 px-2 py-0.5 rounded-full font-medium whitespace-nowrap shrink-0">
-                        Closing Soon
-                      </span>
-                    )}
+                    <div className="flex items-center gap-1 shrink-0">
+                      {isDeadlineSoon(s.deadline) && (
+                        <span className="text-xs bg-red-50 text-red-500 border border-red-100 px-2 py-0.5 rounded-full font-medium whitespace-nowrap">
+                          Closing Soon
+                        </span>
+                      )}
+                      <SaveButton
+                        itemId={String(s.id)}
+                        title={s.name}
+                        companyOrOrg={s.organization}
+                        link={s.link}
+                        deadline={s.deadline}
+                      />
+                    </div>
                   </div>
                   <h2 className="text-base font-bold text-gray-900 mb-2 leading-snug" style={POPPINS}>{s.name}</h2>
                   <p className="text-gray-500 text-sm leading-relaxed mb-4 line-clamp-3">{s.description}</p>

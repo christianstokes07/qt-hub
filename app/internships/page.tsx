@@ -5,6 +5,8 @@ import Link from "next/link";
 import Image from "next/image";
 import featuredData from "@/data/internships.json";
 import Navbar from "@/components/Navbar";
+import { useUser } from "@clerk/nextjs";
+import { supabase } from "@/lib/supabase";
 
 const POPPINS = { fontFamily: "'Poppins', sans-serif", fontWeight: 700 };
 const DM      = { fontFamily: "'DM Sans', sans-serif" };
@@ -144,6 +146,73 @@ const STATE_ALIASES: Record<string, string> = {
   "silver spring": "MD", "columbia": "MD", "annapolis": "MD",
   "fort meade": "MD", "landover": "MD",
 };
+
+// ── Heart Button Component ──
+function SaveButton({ itemId, itemType, title, companyOrOrg, link, deadline }: {
+  itemId: string;
+  itemType: "internship" | "scholarship";
+  title: string;
+  companyOrOrg: string;
+  link: string;
+  deadline?: string;
+}) {
+  const { user, isSignedIn } = useUser();
+  const [saved, setSaved] = useState(false);
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    if (!isSignedIn || !user) return;
+    supabase
+      .from("favorites")
+      .select("id")
+      .eq("user_id", user.id)
+      .eq("item_id", itemId)
+      .eq("item_type", itemType)
+      .maybeSingle()
+      .then(({ data }) => setSaved(!!data));
+  }, [isSignedIn, user, itemId, itemType]);
+
+  const toggle = async (e: React.MouseEvent) => {
+    e.preventDefault();
+    if (!isSignedIn || !user) {
+      alert("Please sign in to save favorites.");
+      return;
+    }
+    setLoading(true);
+    if (saved) {
+      await supabase.from("favorites").delete()
+        .eq("user_id", user.id)
+        .eq("item_id", itemId)
+        .eq("item_type", itemType);
+      setSaved(false);
+    } else {
+      await supabase.from("favorites").insert({
+        user_id: user.id,
+        item_id: itemId,
+        item_type: itemType,
+        title,
+        company_or_org: companyOrOrg,
+        link,
+        deadline: deadline || "Rolling",
+      });
+      setSaved(true);
+    }
+    setLoading(false);
+  };
+
+  return (
+    <button
+      onClick={toggle}
+      disabled={loading}
+      className={`p-1.5 rounded-full transition-all duration-200 ${saved ? "text-pink-500" : "text-gray-300 hover:text-pink-400"}`}
+      title={saved ? "Remove from saved" : "Save"}
+    >
+      <svg className="w-5 h-5" fill={saved ? "currentColor" : "none"} stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+      </svg>
+    </button>
+  );
+}
 
 export default function InternshipsPage() {
   const [search, setSearch]                 = useState("");
@@ -359,11 +428,20 @@ export default function InternshipsPage() {
               {filteredFeatured.map((job) => (
                 <div key={job.id} className="bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-200 flex flex-col">
                   <div className="p-6 flex-1">
-                    <div className="flex items-center gap-2 mb-3">
-                      <div className="w-9 h-9 rounded-lg bg-pink-50 border border-pink-100 flex items-center justify-center text-pink-400 font-bold text-sm shrink-0">
-                        {job.company.charAt(0)}
+                    <div className="flex items-center justify-between mb-3">
+                      <div className="flex items-center gap-2">
+                        <div className="w-9 h-9 rounded-lg bg-pink-50 border border-pink-100 flex items-center justify-center text-pink-400 font-bold text-sm shrink-0">
+                          {job.company.charAt(0)}
+                        </div>
+                        <p className="text-pink-500 font-semibold text-sm">{job.company}</p>
                       </div>
-                      <p className="text-pink-500 font-semibold text-sm">{job.company}</p>
+                      <SaveButton
+                        itemId={String(job.id)}
+                        itemType="internship"
+                        title={job.title}
+                        companyOrOrg={job.company}
+                        link={job.link}
+                      />
                     </div>
                     <h2 className="text-base font-bold text-gray-900 mb-2 leading-snug line-clamp-2">{job.title}</h2>
                     <p className="text-gray-500 text-sm leading-relaxed mb-4 line-clamp-3">{job.description}</p>
@@ -430,9 +508,18 @@ export default function InternshipsPage() {
                         </div>
                         <p className="text-pink-500 font-semibold text-sm">{job.company?.display_name}</p>
                       </div>
-                      {job.created && (
-                        <span className="text-gray-400 text-xs whitespace-nowrap">{timeAgo(job.created)}</span>
-                      )}
+                      <div className="flex items-center gap-2">
+                        {job.created && (
+                          <span className="text-gray-400 text-xs whitespace-nowrap">{timeAgo(job.created)}</span>
+                        )}
+                        <SaveButton
+                          itemId={job.id}
+                          itemType="internship"
+                          title={job.title}
+                          companyOrOrg={job.company?.display_name}
+                          link={job.redirect_url}
+                        />
+                      </div>
                     </div>
                     <h2 className="text-base font-bold text-gray-900 mb-2 leading-snug line-clamp-2">{job.title}</h2>
                     <p className="text-gray-500 text-sm leading-relaxed mb-4 line-clamp-3">
