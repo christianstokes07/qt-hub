@@ -17,6 +17,7 @@ export default function RootLayout({
         {/* Nunito 800 = rounded, friendly, matches logo font */}
         {/* Playfair Display = elegant serif for founder section */}
         {/* DM Sans = clean body text, nav, buttons, labels */}
+        <link rel="icon" href="/favicon.ico" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
