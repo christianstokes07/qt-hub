@@ -7,6 +7,7 @@ import { useUser } from "@clerk/nextjs";
 import { supabase } from "@/lib/supabase";
 import Navbar from "@/components/Navbar";
 import { useRouter } from "next/navigation";
+export const dynamic = "force-dynamic";
 
 const POPPINS = { fontFamily: "'Poppins', sans-serif", fontWeight: 700 };
 const DM      = { fontFamily: "'DM Sans', sans-serif" };

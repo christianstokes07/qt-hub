@@ -8,6 +8,7 @@ import { supabase } from "@/lib/supabase";
 import Navbar from "@/components/Navbar";
 import internshipsData from "@/data/internships.json";
 import scholarshipsData from "@/data/scholarships.json";
+export const dynamic = "force-dynamic";
 
 const POPPINS = { fontFamily: "'Poppins', sans-serif", fontWeight: 700 };
 const DM      = { fontFamily: "'DM Sans', sans-serif" };
