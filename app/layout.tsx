@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export const metadata: Metadata = {
   title: "QT Hub | Hampton University Internships",
@@ -26,6 +27,7 @@ export default function RootLayout({
         </head>
         <body className="antialiased bg-white" style={{ fontFamily: "'DM Sans', sans-serif" }}>
           {children}
+          <SpeedInsights />
         </body>
       </html>
     </ClerkProvider>
