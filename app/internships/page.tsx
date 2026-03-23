@@ -204,7 +204,7 @@ function SignupBanner() {
   if (!isLoaded || isSignedIn || dismissed) return null;
 
   return (
-    <div className="bg-gradient-to-r from-pink-400 to-rose-400 px-6 py-3">
+    <div className="bg-pink-400 px-6 py-3">
       <div className="max-w-6xl mx-auto flex items-center justify-between gap-4">
         <p className="text-sm text-white font-medium">
           Get personalized internship and scholarship matches based on your major and GPA.
