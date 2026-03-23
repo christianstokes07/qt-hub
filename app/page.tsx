@@ -167,7 +167,7 @@ export default function Home() {
             <Link href="/scholarships" className="hover:text-pink-400 transition-colors">Scholarships</Link>
             <Link href="/resources" className="hover:text-pink-400 transition-colors">Resources</Link>
           </div>
-          <p>© 2025 QT Hub · Made for Hampton University</p>
+          <p>© 2026 QT Hub · Made for Hampton University</p>
         </div>
       </footer>
 

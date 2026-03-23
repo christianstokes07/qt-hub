@@ -210,7 +210,7 @@ export default function ProfilePage() {
             <Link href="/resources" className="hover:text-pink-400 transition-colors">Resources</Link>
             <Link href="/about" className="hover:text-pink-400 transition-colors">About</Link>
           </div>
-          <p>© 2025 QT Hub · Made for Hampton University</p>
+          <p>© 2026 QT Hub · Made for Hampton University</p>
         </div>
       </footer>
     </main>

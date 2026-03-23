@@ -5,7 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import featuredData from "@/data/internships.json";
 import Navbar from "@/components/Navbar";
-import { useUser } from "@clerk/nextjs";
+import { useUser, SignInButton } from "@clerk/nextjs";
 import { supabase } from "@/lib/supabase";
 
 const POPPINS = { fontFamily: "'Poppins', sans-serif", fontWeight: 700 };
@@ -161,22 +161,14 @@ function SaveButton({ itemId, itemType, title, companyOrOrg, link, deadline }: {
 
   useEffect(() => {
     if (!isSignedIn || !user) return;
-    supabase
-      .from("favorites")
-      .select("id")
-      .eq("user_id", user.id)
-      .eq("item_id", itemId)
-      .eq("item_type", itemType)
-      .maybeSingle()
-      .then(({ data }) => setSaved(!!data));
+    supabase.from("favorites").select("id")
+      .eq("user_id", user.id).eq("item_id", itemId).eq("item_type", itemType)
+      .maybeSingle().then(({ data }) => setSaved(!!data));
   }, [isSignedIn, user, itemId, itemType]);
 
   const toggle = async (e: React.MouseEvent) => {
     e.preventDefault();
-    if (!isSignedIn || !user) {
-      alert("Please sign in to save favorites.");
-      return;
-    }
+    if (!isSignedIn || !user) { alert("Please sign in to save favorites."); return; }
     setLoading(true);
     if (saved) {
       await supabase.from("favorites").delete()
@@ -204,7 +196,35 @@ function SaveButton({ itemId, itemType, title, companyOrOrg, link, deadline }: {
   );
 }
 
-// ── Profile Banner ──
+// ── Sign Up Banner (not signed in) ──
+function SignupBanner() {
+  const { isSignedIn, isLoaded } = useUser();
+  const [dismissed, setDismissed] = useState(false);
+
+  if (!isLoaded || isSignedIn || dismissed) return null;
+
+  return (
+    <div className="bg-gradient-to-r from-pink-400 to-rose-400 px-6 py-3">
+      <div className="max-w-6xl mx-auto flex items-center justify-between gap-4">
+        <p className="text-sm text-white font-medium">
+          Get personalized internship and scholarship matches based on your major and GPA.
+        </p>
+        <div className="flex items-center gap-3 shrink-0">
+          <SignInButton mode="modal">
+            <button className="bg-white text-pink-500 text-xs font-semibold px-4 py-1.5 rounded-full hover:bg-pink-50 transition-colors">
+              Sign Up Free
+            </button>
+          </SignInButton>
+          <button onClick={() => setDismissed(true)} className="text-white/70 hover:text-white text-xs font-medium transition-colors">
+            Dismiss
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ── Profile Banner (signed in, no profile) ──
 function ProfileBanner() {
   const { user, isSignedIn } = useUser();
   const [showBanner, setShowBanner] = useState(false);
@@ -212,9 +232,7 @@ function ProfileBanner() {
   useEffect(() => {
     if (!isSignedIn || !user) return;
     supabase.from("profiles").select("major").eq("user_id", user.id).maybeSingle()
-      .then(({ data }) => {
-        if (!data?.major) setShowBanner(true);
-      });
+      .then(({ data }) => { if (!data?.major) setShowBanner(true); });
   }, [isSignedIn, user]);
 
   if (!showBanner) return null;
@@ -223,7 +241,7 @@ function ProfileBanner() {
     <div className="bg-gradient-to-r from-pink-50 to-rose-50 border-b border-pink-100 px-6 py-3">
       <div className="max-w-6xl mx-auto flex items-center justify-between gap-4">
         <p className="text-sm text-pink-700 font-medium">
-          ✨ Get personalized matches — complete your profile to see internships tailored to your major and year.
+          Complete your profile to see internships tailored to your major and year.
         </p>
         <div className="flex items-center gap-3 shrink-0">
           <Link href="/profile" className="bg-pink-400 hover:bg-pink-500 text-white text-xs font-semibold px-4 py-1.5 rounded-full transition-colors">
@@ -265,9 +283,7 @@ export default function InternshipsPage() {
     : liveJobs;
 
   const fetchLiveJobs = useCallback(async (query: string) => {
-    setLoading(true);
-    setError("");
-    setSearched(true);
+    setLoading(true); setError(""); setSearched(true);
     try {
       const keyword = MAJOR_KEYWORDS[major] || "internship";
       const locationTypeSuffix = locationType !== "All Locations" ? ` ${locationType}` : "";
@@ -312,6 +328,7 @@ export default function InternshipsPage() {
     <main className="min-h-screen bg-gray-50" style={DM}>
 
       <Navbar active="internships" />
+      <SignupBanner />
       <ProfileBanner />
 
       {/* ── Header ── */}
