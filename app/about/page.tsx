@@ -132,20 +132,20 @@ from the ground up.
       </section>
 
       {/* ── Footer ── */}
-      <footer className="border-t border-gray-100 py-8 px-6 bg-white">
-        <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-gray-400">
-          <Link href="/">
-            <Image src="/QTlogo.png" alt="QT Hub" width={80} height={28} className="object-contain" />
-          </Link>
-          <div className="flex gap-6">
-            <Link href="/internships" className="hover:text-pink-400 transition-colors">Internships</Link>
-            <Link href="/scholarships" className="hover:text-pink-400 transition-colors">Scholarships</Link>
-            <Link href="/resources" className="hover:text-pink-400 transition-colors">Resources</Link>
-            <Link href="/about" className="hover:text-pink-400 transition-colors">About</Link>
-          </div>
-          <p>© 2026 QT Hub · Made for Hampton University</p>
-        </div>
-      </footer>
+      <footer className="border-t border-gray-100 py-8 pl-9 pr-7 bg-white mt-8">
+  <div className="w-full flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-gray-400">
+    <Link href="/">
+      <Image src="/QTlogo.png" alt="QT Hub" width={80} height={28} className="object-contain" />
+    </Link>
+    <div className="flex gap-6 translate-x-21">
+      <Link href="/internships" className="hover:text-pink-400 transition-colors">Internships</Link>
+      <Link href="/scholarships" className="hover:text-pink-400 transition-colors">Scholarships</Link>
+      <Link href="/resources" className="hover:text-pink-400 transition-colors">Resources</Link>
+      <Link href="/about" className="hover:text-pink-400 transition-colors">About</Link>
+    </div>
+    <p>© 2026 QT Hub · Made for Hampton University</p>
+  </div>
+</footer>
     </main>
   );
 }

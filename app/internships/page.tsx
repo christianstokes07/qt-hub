@@ -205,7 +205,7 @@ function SignupBanner() {
 
   return (
     <div className="bg-pink-400 px-6 py-3">
-      <div className="max-w-6xl mx-auto flex items-center justify-between gap-4">
+      <div className="w-full flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-gray-400 px-2">
         <p className="text-sm text-white font-medium">
           Get personalized internship and scholarship matches based on your major and GPA.
         </p>
@@ -504,20 +504,20 @@ export default function InternshipsPage() {
         </section>
       </div>
 
-      <footer className="border-t border-gray-100 py-8 px-6 bg-white mt-8">
-        <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-gray-400">
-          <Link href="/">
-            <Image src="/QTlogo.png" alt="QT Hub" width={80} height={28} className="object-contain" />
-          </Link>
-          <div className="flex gap-6">
-            <Link href="/internships" className="hover:text-pink-400 transition-colors">Internships</Link>
-            <Link href="/scholarships" className="hover:text-pink-400 transition-colors">Scholarships</Link>
-            <Link href="/resources" className="hover:text-pink-400 transition-colors">Resources</Link>
-            <Link href="/about" className="hover:text-pink-400 transition-colors">About</Link>
-          </div>
-          <p>© 2026 QT Hub · Made for Hampton University</p>
-        </div>
-      </footer>
+      <footer className="border-t border-gray-100 py-8 pl-9 pr-7 bg-white mt-8">
+  <div className="w-full flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-gray-400">
+    <Link href="/">
+      <Image src="/QTlogo.png" alt="QT Hub" width={80} height={28} className="object-contain" />
+    </Link>
+    <div className="flex gap-6 translate-x-21">
+      <Link href="/internships" className="hover:text-pink-400 transition-colors">Internships</Link>
+      <Link href="/scholarships" className="hover:text-pink-400 transition-colors">Scholarships</Link>
+      <Link href="/resources" className="hover:text-pink-400 transition-colors">Resources</Link>
+      <Link href="/about" className="hover:text-pink-400 transition-colors">About</Link>
+    </div>
+    <p>© 2026 QT Hub · Made for Hampton University</p>
+  </div>
+</footer>
     </main>
   );
 }

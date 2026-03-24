@@ -35,7 +35,7 @@ export default function Navbar({ active }: Props) {
 
   return (
     <nav className="bg-white border-b border-pink-100 shadow-sm sticky top-0 z-50">
-      <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div className="w-full px-8 py-4 flex items-center justify-between">
         <Link href="/">
           <Image src="/QTlogo.png" alt="QT Hub" width={120} height={40} className="object-contain" priority />
         </Link>
