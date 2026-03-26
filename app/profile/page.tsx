@@ -72,7 +72,7 @@ export default function ProfilePage() {
         setMajor(data.major || "Select your major");
         setYear(data.year || "Select your class year");
         // Fix: split the comma-separated string back into an array
-        setLocations(data.location_preference ? data.location_preference.split(",") : []);
+        setLocations(data.location_preference ? [...new Set<string>(data.location_preference.split(","))] : []);
         setGpa(data.gpa || "Select your GPA range");
       }
       setLoaded(true);
@@ -88,7 +88,7 @@ export default function ProfilePage() {
       user_id: user.id,
       major: major === "Select your major" ? null : major,
       year: year === "Select your class year" ? null : year,
-      location_preference: locations.length > 0 ? locations.join(", ") : null,
+      location_preference: locations.length > 0 ? locations.join(",") : null,
       gpa: gpa === "Select your GPA range" ? null : gpa,
       updated_at: new Date().toISOString(),
     });
