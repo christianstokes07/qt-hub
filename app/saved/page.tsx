@@ -3,8 +3,8 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { useUser } from "@clerk/nextjs";
-import { supabase } from "@/lib/supabase";
+import { useUser, useAuth } from "@clerk/nextjs";
+import { getAuthenticatedSupabase } from "@/lib/supabase";
 import Navbar from "@/components/Navbar";
 export const dynamic = "force-dynamic";
 
@@ -24,27 +24,30 @@ type Favorite = {
 
 export default function SavedPage() {
   const { user, isSignedIn, isLoaded } = useUser();
+  const { getToken } = useAuth();
   const [favorites, setFavorites] = useState<Favorite[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     if (!isLoaded) return;
-    if (!isSignedIn || !user) {
+    if (!isSignedIn || !user) { setLoading(false); return; }
+
+    const fetchFavorites = async () => {
+      const supabase = await getAuthenticatedSupabase(() => getToken({ template: "supabase" }));
+      const { data } = await supabase
+        .from("favorites")
+        .select("*")
+        .eq("user_id", user.id)
+        .order("created_at", { ascending: false });
+      setFavorites(data || []);
       setLoading(false);
-      return;
-    }
-    supabase
-      .from("favorites")
-      .select("*")
-      .eq("user_id", user.id)
-      .order("created_at", { ascending: false })
-      .then(({ data }) => {
-        setFavorites(data || []);
-        setLoading(false);
-      });
+    };
+
+    fetchFavorites();
   }, [isLoaded, isSignedIn, user]);
 
   const remove = async (id: string) => {
+    const supabase = await getAuthenticatedSupabase(() => getToken({ template: "supabase" }));
     await supabase.from("favorites").delete().eq("id", id);
     setFavorites((prev) => prev.filter((f) => f.id !== id));
   };
@@ -64,7 +67,6 @@ export default function SavedPage() {
       </section>
 
       <div className="max-w-6xl mx-auto px-6 py-10 space-y-14">
-
         {!isLoaded || loading ? (
           <div className="flex justify-center py-24">
             <div className="w-10 h-10 border-4 border-pink-200 border-t-pink-400 rounded-full animate-spin" />
@@ -74,9 +76,7 @@ export default function SavedPage() {
             <p className="text-5xl mb-4">🔒</p>
             <p className="text-xl font-semibold text-gray-700 mb-2">Sign in to view your saved items</p>
             <p className="text-gray-400 mb-6">Create an account to save internships and scholarships.</p>
-            <Link href="/sign-in" className="bg-pink-400 hover:bg-pink-500 text-white font-semibold px-8 py-4 rounded-full transition-colors">
-              Sign In
-            </Link>
+            <Link href="/sign-in" className="bg-pink-400 hover:bg-pink-500 text-white font-semibold px-8 py-4 rounded-full transition-colors">Sign In</Link>
           </div>
         ) : favorites.length === 0 ? (
           <div className="text-center py-24">
@@ -84,17 +84,12 @@ export default function SavedPage() {
             <p className="text-xl font-semibold text-gray-700 mb-2">No saved items yet</p>
             <p className="text-gray-400 mb-6">Hit the heart icon on any internship or scholarship to save it here.</p>
             <div className="flex gap-4 justify-center">
-              <Link href="/internships" className="bg-pink-400 hover:bg-pink-500 text-white font-semibold px-6 py-3 rounded-full transition-colors">
-                Browse Internships
-              </Link>
-              <Link href="/scholarships" className="border border-pink-300 text-pink-500 hover:bg-pink-50 font-semibold px-6 py-3 rounded-full transition-colors">
-                Browse Scholarships
-              </Link>
+              <Link href="/internships" className="bg-pink-400 hover:bg-pink-500 text-white font-semibold px-6 py-3 rounded-full transition-colors">Browse Internships</Link>
+              <Link href="/scholarships" className="border border-pink-300 text-pink-500 hover:bg-pink-50 font-semibold px-6 py-3 rounded-full transition-colors">Browse Scholarships</Link>
             </div>
           </div>
         ) : (
           <>
-            {/* Internships */}
             {internships.length > 0 && (
               <section>
                 <div className="flex items-center gap-3 mb-6">
@@ -137,7 +132,6 @@ export default function SavedPage() {
               </section>
             )}
 
-            {/* Scholarships */}
             {scholarships.length > 0 && (
               <section>
                 <div className="flex items-center gap-3 mb-6">
@@ -179,19 +173,19 @@ export default function SavedPage() {
       </div>
 
       <footer className="border-t border-gray-100 py-8 pl-9 pr-7 bg-white mt-8">
-  <div className="w-full flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-gray-400">
-    <Link href="/">
-      <Image src="/QTlogo.png" alt="QT Hub" width={80} height={28} className="object-contain" />
-    </Link>
-    <div className="flex gap-6 translate-x-21">
-      <Link href="/internships" className="hover:text-pink-400 transition-colors">Internships</Link>
-      <Link href="/scholarships" className="hover:text-pink-400 transition-colors">Scholarships</Link>
-      <Link href="/resources" className="hover:text-pink-400 transition-colors">Resources</Link>
-      <Link href="/about" className="hover:text-pink-400 transition-colors">About</Link>
-    </div>
-    <p>© 2026 QT Hub · Made for Hampton University</p>
-  </div>
-</footer>
+        <div className="w-full flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-gray-400">
+          <Link href="/">
+            <Image src="/QTlogo.png" alt="QT Hub" width={80} height={28} className="object-contain" />
+          </Link>
+          <div className="flex gap-6 translate-x-21">
+            <Link href="/internships" className="hover:text-pink-400 transition-colors">Internships</Link>
+            <Link href="/scholarships" className="hover:text-pink-400 transition-colors">Scholarships</Link>
+            <Link href="/resources" className="hover:text-pink-400 transition-colors">Resources</Link>
+            <Link href="/about" className="hover:text-pink-400 transition-colors">About</Link>
+          </div>
+          <p>© 2026 QT Hub · Made for Hampton University</p>
+        </div>
+      </footer>
     </main>
   );
 }

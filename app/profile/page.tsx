@@ -3,10 +3,9 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { useUser } from "@clerk/nextjs";
-import { supabase } from "@/lib/supabase";
+import { useUser, useAuth } from "@clerk/nextjs";
+import { getAuthenticatedSupabase } from "@/lib/supabase";
 import Navbar from "@/components/Navbar";
-import { useRouter } from "next/navigation";
 export const dynamic = "force-dynamic";
 
 const POPPINS = { fontFamily: "'Poppins', sans-serif", fontWeight: 700 };
@@ -34,46 +33,62 @@ const MAJORS = [
 ];
 
 const YEARS = ["Select your class year", "Sophomore", "Junior"];
-const LOCATIONS = ["No preference", "Remote", "Washington DC / MD / VA", "New York", "California", "Texas", "Nationwide"];
+const LOCATIONS = [
+  "No preference", "Remote", "Nationwide",
+  "Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado",
+  "Connecticut", "Delaware", "Florida", "Georgia", "Hawaii", "Idaho",
+  "Illinois", "Indiana", "Iowa", "Kansas", "Kentucky", "Louisiana",
+  "Maine", "Maryland", "Massachusetts", "Michigan", "Minnesota",
+  "Mississippi", "Missouri", "Montana", "Nebraska", "Nevada",
+  "New Hampshire", "New Jersey", "New Mexico", "New York",
+  "North Carolina", "North Dakota", "Ohio", "Oklahoma", "Oregon",
+  "Pennsylvania", "Rhode Island", "South Carolina", "South Dakota",
+  "Tennessee", "Texas", "Utah", "Vermont", "Virginia",
+  "Washington", "Washington DC", "West Virginia", "Wisconsin", "Wyoming",
+];
 const GPAS = ["Select your GPA range", "3.5+", "3.0–3.49", "2.75–2.99", "2.5–2.74", "Below 2.5"];
 
 export default function ProfilePage() {
   const { user, isSignedIn, isLoaded } = useUser();
-  const router = useRouter();
-  const [major, setMajor]       = useState("Select your major");
-  const [year, setYear]         = useState("Select your class year");
-  const [location, setLocation] = useState("No preference");
-  const [gpa, setGpa]           = useState("Select your GPA range");
-  const [saving, setSaving]     = useState(false);
-  const [saved, setSaved]       = useState(false);
-  const [loaded, setLoaded]     = useState(false);
+  const { getToken } = useAuth();
+  const [major, setMajor]           = useState("Select your major");
+  const [year, setYear]             = useState("Select your class year");
+  const [locations, setLocations]   = useState<string[]>([]);
+  const [gpa, setGpa]               = useState("Select your GPA range");
+  const [saving, setSaving]         = useState(false);
+  const [saved, setSaved]           = useState(false);
+  const [loaded, setLoaded]         = useState(false);
 
   useEffect(() => {
     if (!isLoaded || !isSignedIn || !user) return;
-    supabase
-      .from("profiles")
-      .select("*")
-      .eq("user_id", user.id)
-      .maybeSingle()
-      .then(({ data }) => {
-        if (data) {
-          setMajor(data.major || "Select your major");
-          setYear(data.year || "Select your class year");
-          setLocation(data.location_preference || "No preference");
-          setGpa(data.gpa || "Select your GPA range");
-        }
-        setLoaded(true);
-      });
+    const fetchProfile = async () => {
+      const supabase = await getAuthenticatedSupabase(() => getToken({ template: "supabase" }));
+      const { data } = await supabase
+        .from("profiles")
+        .select("*")
+        .eq("user_id", user.id)
+        .maybeSingle();
+      if (data) {
+        setMajor(data.major || "Select your major");
+        setYear(data.year || "Select your class year");
+        // Fix: split the comma-separated string back into an array
+        setLocations(data.location_preference ? data.location_preference.split(",") : []);
+        setGpa(data.gpa || "Select your GPA range");
+      }
+      setLoaded(true);
+    };
+    fetchProfile();
   }, [isLoaded, isSignedIn, user]);
 
   const handleSave = async () => {
     if (!user) return;
     setSaving(true);
+    const supabase = await getAuthenticatedSupabase(() => getToken({ template: "supabase" }));
     await supabase.from("profiles").upsert({
       user_id: user.id,
       major: major === "Select your major" ? null : major,
       year: year === "Select your class year" ? null : year,
-      location_preference: location,
+      location_preference: locations.length > 0 ? locations.join(", ") : null,
       gpa: gpa === "Select your GPA range" ? null : gpa,
       updated_at: new Date().toISOString(),
     });
@@ -135,63 +150,59 @@ export default function ProfilePage() {
 
           <div className="flex flex-col gap-1.5">
             <label className="text-sm font-medium text-gray-700">Major</label>
-            <select
-              value={major}
-              onChange={(e) => setMajor(e.target.value)}
-              className="border border-gray-200 rounded-lg px-4 py-2.5 text-sm text-gray-700 bg-white focus:outline-none focus:ring-2 focus:ring-pink-300 cursor-pointer hover:border-pink-300 transition-colors"
-            >
+            <select value={major} onChange={(e) => setMajor(e.target.value)}
+              className="border border-gray-200 rounded-lg px-4 py-2.5 text-sm text-gray-700 bg-white focus:outline-none focus:ring-2 focus:ring-pink-300 cursor-pointer hover:border-pink-300 transition-colors">
               {MAJORS.map((m) => <option key={m} value={m}>{m}</option>)}
             </select>
           </div>
 
           <div className="flex flex-col gap-1.5">
             <label className="text-sm font-medium text-gray-700">Class Year</label>
-            <select
-              value={year}
-              onChange={(e) => setYear(e.target.value)}
-              className="border border-gray-200 rounded-lg px-4 py-2.5 text-sm text-gray-700 bg-white focus:outline-none focus:ring-2 focus:ring-pink-300 cursor-pointer hover:border-pink-300 transition-colors"
-            >
+            <select value={year} onChange={(e) => setYear(e.target.value)}
+              className="border border-gray-200 rounded-lg px-4 py-2.5 text-sm text-gray-700 bg-white focus:outline-none focus:ring-2 focus:ring-pink-300 cursor-pointer hover:border-pink-300 transition-colors">
               {YEARS.map((y) => <option key={y} value={y}>{y}</option>)}
             </select>
           </div>
 
           <div className="flex flex-col gap-1.5">
             <label className="text-sm font-medium text-gray-700">GPA</label>
-            <select
-              value={gpa}
-              onChange={(e) => setGpa(e.target.value)}
-              className="border border-gray-200 rounded-lg px-4 py-2.5 text-sm text-gray-700 bg-white focus:outline-none focus:ring-2 focus:ring-pink-300 cursor-pointer hover:border-pink-300 transition-colors"
-            >
+            <select value={gpa} onChange={(e) => setGpa(e.target.value)}
+              className="border border-gray-200 rounded-lg px-4 py-2.5 text-sm text-gray-700 bg-white focus:outline-none focus:ring-2 focus:ring-pink-300 cursor-pointer hover:border-pink-300 transition-colors">
               {GPAS.map((g) => <option key={g} value={g}>{g}</option>)}
             </select>
           </div>
 
           <div className="flex flex-col gap-1.5">
             <label className="text-sm font-medium text-gray-700">Location Preference</label>
-            <select
-              value={location}
-              onChange={(e) => setLocation(e.target.value)}
-              className="border border-gray-200 rounded-lg px-4 py-2.5 text-sm text-gray-700 bg-white focus:outline-none focus:ring-2 focus:ring-pink-300 cursor-pointer hover:border-pink-300 transition-colors"
-            >
-              {LOCATIONS.map((l) => <option key={l} value={l}>{l}</option>)}
-            </select>
+            <p className="text-xs text-gray-400">Select all that apply</p>
+            <div className="flex flex-wrap gap-2 mt-1">
+              {LOCATIONS.map((l) => (
+                <button
+                  key={l}
+                  type="button"
+                  onClick={() => setLocations((prev) =>
+                    prev.includes(l) ? prev.filter((x) => x !== l) : [...prev, l]
+                  )}
+                  className={`px-3 py-1.5 rounded-full text-sm font-medium border transition-colors ${
+                    locations.includes(l)
+                      ? "bg-pink-400 text-white border-pink-400"
+                      : "bg-white text-gray-600 border-gray-200 hover:border-pink-300"
+                  }`}
+                >
+                  {l}
+                </button>
+              ))}
+            </div>
           </div>
         </div>
 
-        {/* Save button */}
-        <button
-          onClick={handleSave}
-          disabled={saving}
+        <button onClick={handleSave} disabled={saving}
           className={`w-full font-semibold py-4 rounded-full transition-all duration-200 ${
-            saved
-              ? "bg-green-400 text-white"
-              : "bg-pink-400 hover:bg-pink-500 text-white shadow-md hover:shadow-lg"
-          }`}
-        >
+            saved ? "bg-green-400 text-white" : "bg-pink-400 hover:bg-pink-500 text-white shadow-md hover:shadow-lg"
+          }`}>
           {saving ? "Saving..." : saved ? "✓ Saved!" : "Save Profile"}
         </button>
 
-        {/* Link to For You page */}
         <div className="text-center">
           <Link href="/for-you" className="text-pink-500 hover:text-pink-700 font-medium text-sm transition-colors">
             View your personalized matches →
@@ -200,19 +211,17 @@ export default function ProfilePage() {
       </div>
 
       <footer className="border-t border-gray-100 py-8 pl-9 pr-7 bg-white mt-8">
-  <div className="w-full flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-gray-400">
-    <Link href="/">
-      <Image src="/QTlogo.png" alt="QT Hub" width={80} height={28} className="object-contain" />
-    </Link>
-    <div className="flex gap-6 translate-x-21">
-      <Link href="/internships" className="hover:text-pink-400 transition-colors">Internships</Link>
-      <Link href="/scholarships" className="hover:text-pink-400 transition-colors">Scholarships</Link>
-      <Link href="/resources" className="hover:text-pink-400 transition-colors">Resources</Link>
-      <Link href="/about" className="hover:text-pink-400 transition-colors">About</Link>
-    </div>
-    <p>© 2026 QT Hub · Made for Hampton University</p>
-  </div>
-</footer>
+        <div className="w-full flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-gray-400">
+          <Link href="/"><Image src="/QTlogo.png" alt="QT Hub" width={80} height={28} className="object-contain" /></Link>
+          <div className="flex gap-6 translate-x-21">
+            <Link href="/internships" className="hover:text-pink-400 transition-colors">Internships</Link>
+            <Link href="/scholarships" className="hover:text-pink-400 transition-colors">Scholarships</Link>
+            <Link href="/resources" className="hover:text-pink-400 transition-colors">Resources</Link>
+            <Link href="/about" className="hover:text-pink-400 transition-colors">About</Link>
+          </div>
+          <p>© 2026 QT Hub · Made for Hampton University</p>
+        </div>
+      </footer>
     </main>
   );
 }

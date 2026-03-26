@@ -3,8 +3,8 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { useUser } from "@clerk/nextjs";
-import { supabase } from "@/lib/supabase";
+import { useUser, useAuth } from "@clerk/nextjs";
+import { getAuthenticatedSupabase } from "@/lib/supabase";
 import Navbar from "@/components/Navbar";
 import internshipsData from "@/data/internships.json";
 import scholarshipsData from "@/data/scholarships.json";
@@ -72,18 +72,25 @@ function SaveButton({ itemId, itemType, title, companyOrOrg, link, deadline }: {
   deadline?: string;
 }) {
   const { user, isSignedIn } = useUser();
+  const { getToken } = useAuth();
   const [saved, setSaved] = useState(false);
 
   useEffect(() => {
     if (!isSignedIn || !user) return;
-    supabase.from("favorites").select("id")
-      .eq("user_id", user.id).eq("item_id", itemId).eq("item_type", itemType)
-      .maybeSingle().then(({ data }) => setSaved(!!data));
+    const check = async () => {
+      const supabase = await getAuthenticatedSupabase(() => getToken({ template: "supabase" }));
+      const { data } = await supabase.from("favorites").select("id")
+        .eq("user_id", user.id).eq("item_id", itemId).eq("item_type", itemType)
+        .maybeSingle();
+      setSaved(!!data);
+    };
+    check();
   }, [isSignedIn, user, itemId, itemType]);
 
   const toggle = async (e: React.MouseEvent) => {
     e.preventDefault();
     if (!isSignedIn || !user) return;
+    const supabase = await getAuthenticatedSupabase(() => getToken({ template: "supabase" }));
     if (saved) {
       await supabase.from("favorites").delete()
         .eq("user_id", user.id).eq("item_id", itemId).eq("item_type", itemType);
@@ -108,16 +115,21 @@ function SaveButton({ itemId, itemType, title, companyOrOrg, link, deadline }: {
 
 export default function ForYouPage() {
   const { user, isSignedIn, isLoaded } = useUser();
+  const { getToken } = useAuth();
   const [profile, setProfile] = useState<Profile | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     if (!isLoaded || !isSignedIn || !user) { setLoading(false); return; }
-    supabase.from("profiles").select("*").eq("user_id", user.id).maybeSingle()
-      .then(({ data }) => { setProfile(data); setLoading(false); });
+    const fetchProfile = async () => {
+      const supabase = await getAuthenticatedSupabase(() => getToken({ template: "supabase" }));
+      const { data } = await supabase.from("profiles").select("*").eq("user_id", user.id).maybeSingle();
+      setProfile(data);
+      setLoading(false);
+    };
+    fetchProfile();
   }, [isLoaded, isSignedIn, user]);
 
-  // Match internships
   const matchedInternships = (internshipsData as Internship[]).filter((job) => {
     if (!profile) return false;
     const majorMatch = !profile.major || job.major.includes(profile.major) || job.major.includes("All Majors");
@@ -133,7 +145,6 @@ export default function ForYouPage() {
     return majorMatch && yearMatch && locationMatch;
   }).slice(0, 12);
 
-  // Match scholarships
   const matchedScholarships = (scholarshipsData as Scholarship[]).filter((s) => {
     if (!profile) return false;
     const majorMatch = !profile.major || s.major.includes("All Majors") || s.major.includes(profile.major);
@@ -169,7 +180,6 @@ export default function ForYouPage() {
       </section>
 
       <div className="max-w-6xl mx-auto px-6 py-10 space-y-14">
-
         {!isLoaded || loading ? (
           <div className="flex justify-center py-24">
             <div className="w-10 h-10 border-4 border-pink-200 border-t-pink-400 rounded-full animate-spin" />
@@ -191,18 +201,16 @@ export default function ForYouPage() {
           </div>
         ) : (
           <>
-            {/* Profile summary */}
             <div className="bg-gradient-to-br from-pink-50 to-rose-50 rounded-2xl p-6 border border-pink-100 flex flex-wrap gap-3">
               {profile.major && <span className="text-sm bg-white text-pink-600 px-3 py-1.5 rounded-full border border-pink-100 font-medium">📚 {profile.major}</span>}
               {profile.year && <span className="text-sm bg-white text-pink-600 px-3 py-1.5 rounded-full border border-pink-100 font-medium">🎓 {profile.year}</span>}
               {profile.gpa && <span className="text-sm bg-white text-pink-600 px-3 py-1.5 rounded-full border border-pink-100 font-medium">📊 GPA {profile.gpa}</span>}
               {profile.location_preference && profile.location_preference !== "No preference" && (
-                <span className="text-sm bg-white text-pink-600 px-3 py-1.5 rounded-full border border-pink-100 font-medium">📍 {profile.location_preference}</span>
+                <span className="text-sm bg-white text-pink-600 px-3 py-1.5 rounded-full border border-pink-100 font-medium">📍 {profile.location_preference?.split(",").join(", ")}</span>
               )}
               <Link href="/profile" className="text-sm text-gray-400 hover:text-pink-500 px-3 py-1.5 rounded-full border border-gray-200 font-medium transition-colors">Edit →</Link>
             </div>
 
-            {/* Matched Internships */}
             <section>
               <div className="flex items-center gap-3 mb-6">
                 <span className="text-xl">⭐</span>
@@ -237,9 +245,7 @@ export default function ForYouPage() {
                             </svg>
                             {job.location}
                           </span>
-                          {job.year.map((y) => (
-                            <span key={y} className="text-xs bg-gray-100 text-gray-600 px-2.5 py-1 rounded-full font-medium">{y}</span>
-                          ))}
+                          {job.year.map((y) => <span key={y} className="text-xs bg-gray-100 text-gray-600 px-2.5 py-1 rounded-full font-medium">{y}</span>)}
                         </div>
                       </div>
                       <div className="px-6 pb-6">
@@ -253,7 +259,6 @@ export default function ForYouPage() {
               )}
             </section>
 
-            {/* Matched Scholarships */}
             <section>
               <div className="flex items-center gap-3 mb-6">
                 <span className="text-xl">🏆</span>
@@ -276,16 +281,10 @@ export default function ForYouPage() {
                         <h2 className="text-base font-bold text-gray-900 mb-2 leading-snug" style={POPPINS}>{s.name}</h2>
                         <p className="text-gray-500 text-sm leading-relaxed mb-4 line-clamp-3">{s.description}</p>
                         <div className="flex flex-wrap gap-2">
-                          <span className="inline-flex items-center gap-1 text-xs text-green-700 bg-green-50 px-2.5 py-1 rounded-full border border-green-100 font-semibold">
-                            💰 {s.amount}
-                          </span>
-                          <span className="inline-flex items-center gap-1 text-xs text-gray-500 bg-gray-50 px-2.5 py-1 rounded-full border border-gray-100">
-                            📅 {s.deadline}
-                          </span>
+                          <span className="inline-flex items-center gap-1 text-xs text-green-700 bg-green-50 px-2.5 py-1 rounded-full border border-green-100 font-semibold">💰 {s.amount}</span>
+                          <span className="inline-flex items-center gap-1 text-xs text-gray-500 bg-gray-50 px-2.5 py-1 rounded-full border border-gray-100">📅 {s.deadline}</span>
                           {s.gpa && s.gpa !== "None stated" && (
-                            <span className="text-xs bg-blue-50 text-blue-600 px-2.5 py-1 rounded-full border border-blue-100 font-medium">
-                              GPA {s.gpa}+
-                            </span>
+                            <span className="text-xs bg-blue-50 text-blue-600 px-2.5 py-1 rounded-full border border-blue-100 font-medium">GPA {s.gpa}+</span>
                           )}
                         </div>
                       </div>
@@ -304,19 +303,19 @@ export default function ForYouPage() {
       </div>
 
       <footer className="border-t border-gray-100 py-8 pl-9 pr-7 bg-white mt-8">
-  <div className="w-full flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-gray-400">
-    <Link href="/">
-      <Image src="/QTlogo.png" alt="QT Hub" width={80} height={28} className="object-contain" />
-    </Link>
-    <div className="flex gap-6 translate-x-21">
-      <Link href="/internships" className="hover:text-pink-400 transition-colors">Internships</Link>
-      <Link href="/scholarships" className="hover:text-pink-400 transition-colors">Scholarships</Link>
-      <Link href="/resources" className="hover:text-pink-400 transition-colors">Resources</Link>
-      <Link href="/about" className="hover:text-pink-400 transition-colors">About</Link>
-    </div>
-    <p>© 2026 QT Hub · Made for Hampton University</p>
-  </div>
-</footer>
+        <div className="w-full flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-gray-400">
+          <Link href="/">
+            <Image src="/QTlogo.png" alt="QT Hub" width={80} height={28} className="object-contain" />
+          </Link>
+          <div className="flex gap-6 translate-x-21">
+            <Link href="/internships" className="hover:text-pink-400 transition-colors">Internships</Link>
+            <Link href="/scholarships" className="hover:text-pink-400 transition-colors">Scholarships</Link>
+            <Link href="/resources" className="hover:text-pink-400 transition-colors">Resources</Link>
+            <Link href="/about" className="hover:text-pink-400 transition-colors">About</Link>
+          </div>
+          <p>© 2026 QT Hub · Made for Hampton University</p>
+        </div>
+      </footer>
     </main>
   );
 }

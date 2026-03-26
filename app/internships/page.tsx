@@ -5,8 +5,8 @@ import Link from "next/link";
 import Image from "next/image";
 import featuredData from "@/data/internships.json";
 import Navbar from "@/components/Navbar";
-import { useUser, SignInButton } from "@clerk/nextjs";
-import { supabase } from "@/lib/supabase";
+import { useUser, SignInButton, useAuth } from "@clerk/nextjs";
+import { getAuthenticatedSupabase } from "@/lib/supabase";
 
 const POPPINS = { fontFamily: "'Poppins', sans-serif", fontWeight: 700 };
 const DM      = { fontFamily: "'DM Sans', sans-serif" };
@@ -156,20 +156,27 @@ function SaveButton({ itemId, itemType, title, companyOrOrg, link, deadline }: {
   deadline?: string;
 }) {
   const { user, isSignedIn } = useUser();
+  const { getToken } = useAuth();
   const [saved, setSaved] = useState(false);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     if (!isSignedIn || !user) return;
-    supabase.from("favorites").select("id")
-      .eq("user_id", user.id).eq("item_id", itemId).eq("item_type", itemType)
-      .maybeSingle().then(({ data }) => setSaved(!!data));
+    const check = async () => {
+      const supabase = await getAuthenticatedSupabase(() => getToken({ template: "supabase" }));
+      const { data } = await supabase.from("favorites").select("id")
+        .eq("user_id", user.id).eq("item_id", itemId).eq("item_type", itemType)
+        .maybeSingle();
+      setSaved(!!data);
+    };
+    check();
   }, [isSignedIn, user, itemId, itemType]);
 
   const toggle = async (e: React.MouseEvent) => {
     e.preventDefault();
     if (!isSignedIn || !user) { alert("Please sign in to save favorites."); return; }
     setLoading(true);
+    const supabase = await getAuthenticatedSupabase(() => getToken({ template: "supabase" }));
     if (saved) {
       await supabase.from("favorites").delete()
         .eq("user_id", user.id).eq("item_id", itemId).eq("item_type", itemType);
@@ -196,16 +203,13 @@ function SaveButton({ itemId, itemType, title, companyOrOrg, link, deadline }: {
   );
 }
 
-// ── Sign Up Banner (not signed in) ──
 function SignupBanner() {
   const { isSignedIn, isLoaded } = useUser();
   const [dismissed, setDismissed] = useState(false);
-
   if (!isLoaded || isSignedIn || dismissed) return null;
-
   return (
     <div className="bg-pink-400 px-6 py-3">
-      <div className="w-full flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-gray-400 px-2">
+      <div className="w-full flex flex-col sm:flex-row items-center justify-between gap-4 text-sm px-2">
         <p className="text-sm text-white font-medium">
           Get personalized internship and scholarship matches based on your major and GPA.
         </p>
@@ -215,24 +219,26 @@ function SignupBanner() {
               Sign Up Free
             </button>
           </SignInButton>
-          <button onClick={() => setDismissed(true)} className="text-white/70 hover:text-white text-xs font-medium transition-colors">
-            Dismiss
-          </button>
+          <button onClick={() => setDismissed(true)} className="text-white/70 hover:text-white text-xs font-medium transition-colors">Dismiss</button>
         </div>
       </div>
     </div>
   );
 }
 
-// ── Profile Banner (signed in, no profile) ──
 function ProfileBanner() {
   const { user, isSignedIn } = useUser();
+  const { getToken } = useAuth();
   const [showBanner, setShowBanner] = useState(false);
 
   useEffect(() => {
     if (!isSignedIn || !user) return;
-    supabase.from("profiles").select("major").eq("user_id", user.id).maybeSingle()
-      .then(({ data }) => { if (!data?.major) setShowBanner(true); });
+    const check = async () => {
+      const supabase = await getAuthenticatedSupabase(() => getToken({ template: "supabase" }));
+      const { data } = await supabase.from("profiles").select("major").eq("user_id", user.id).maybeSingle();
+      if (!data?.major) setShowBanner(true);
+    };
+    check();
   }, [isSignedIn, user]);
 
   if (!showBanner) return null;
@@ -247,9 +253,7 @@ function ProfileBanner() {
           <Link href="/profile" className="bg-pink-400 hover:bg-pink-500 text-white text-xs font-semibold px-4 py-1.5 rounded-full transition-colors">
             Complete Profile
           </Link>
-          <button onClick={() => setShowBanner(false)} className="text-pink-400 hover:text-pink-600 text-xs font-medium transition-colors">
-            Dismiss
-          </button>
+          <button onClick={() => setShowBanner(false)} className="text-pink-400 hover:text-pink-600 text-xs font-medium transition-colors">Dismiss</button>
         </div>
       </div>
     </div>
@@ -326,12 +330,10 @@ export default function InternshipsPage() {
 
   return (
     <main className="min-h-screen bg-gray-50" style={DM}>
-
       <Navbar active="internships" />
       <SignupBanner />
       <ProfileBanner />
 
-      {/* ── Header ── */}
       <section className="bg-white border-b border-gray-100 py-10 px-6">
         <div className="max-w-6xl mx-auto">
           <h1 className="text-3xl md:text-4xl text-gray-900 mb-2" style={POPPINS}>Internship Listings</h1>
@@ -339,7 +341,6 @@ export default function InternshipsPage() {
         </div>
       </section>
 
-      {/* ── Search + Filters ── */}
       <section className="bg-white border-b border-gray-100 py-5 px-6 sticky top-[69px] z-40 shadow-sm">
         <div className="max-w-6xl mx-auto space-y-3">
           <form onSubmit={handleSearch} className="flex gap-2">
@@ -352,7 +353,6 @@ export default function InternshipsPage() {
             </div>
             <button type="submit" className="bg-pink-400 hover:bg-pink-500 text-white font-semibold px-5 py-2.5 rounded-lg text-sm transition-colors whitespace-nowrap">Search</button>
           </form>
-
           <div className="flex flex-col sm:flex-row gap-3 items-stretch sm:items-end">
             <div className="flex flex-col gap-1 flex-1">
               <label className="text-xs text-gray-400 font-medium uppercase tracking-wide">Major</label>
@@ -392,8 +392,6 @@ export default function InternshipsPage() {
       </section>
 
       <div className="max-w-6xl mx-auto px-6 py-10 space-y-14">
-
-        {/* ── Featured Internships ── */}
         <section>
           <div className="flex items-center gap-3 mb-6">
             <span className="text-xl">⭐</span>
@@ -401,9 +399,7 @@ export default function InternshipsPage() {
             <span className="text-sm text-gray-400 bg-gray-100 px-2.5 py-1 rounded-full">{filteredFeatured.length} listings</span>
           </div>
           {filteredFeatured.length === 0 ? (
-            <div className="text-center py-12 bg-white rounded-2xl border border-gray-100">
-              <p className="text-gray-400">No featured internships match your filters.</p>
-            </div>
+            <div className="text-center py-12 bg-white rounded-2xl border border-gray-100"><p className="text-gray-400">No featured internships match your filters.</p></div>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {filteredFeatured.map((job) => (
@@ -411,9 +407,7 @@ export default function InternshipsPage() {
                   <div className="p-6 flex-1">
                     <div className="flex items-center justify-between mb-3">
                       <div className="flex items-center gap-2">
-                        <div className="w-9 h-9 rounded-lg bg-pink-50 border border-pink-100 flex items-center justify-center text-pink-400 font-bold text-sm shrink-0">
-                          {job.company.charAt(0)}
-                        </div>
+                        <div className="w-9 h-9 rounded-lg bg-pink-50 border border-pink-100 flex items-center justify-center text-pink-400 font-bold text-sm shrink-0">{job.company.charAt(0)}</div>
                         <p className="text-pink-500 font-semibold text-sm">{job.company}</p>
                       </div>
                       <SaveButton itemId={String(job.id)} itemType="internship" title={job.title} companyOrOrg={job.company} link={job.link} />
@@ -422,10 +416,7 @@ export default function InternshipsPage() {
                     <p className="text-gray-500 text-sm leading-relaxed mb-4 line-clamp-3">{job.description}</p>
                     <div className="flex flex-wrap gap-2">
                       <span className="inline-flex items-center gap-1 text-xs text-gray-500 bg-gray-50 px-2.5 py-1 rounded-full border border-gray-100">
-                        <svg className="w-3 h-3" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M17.657 16.657L13.414 20.9a2 2 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                        </svg>
+                        <svg className="w-3 h-3" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M17.657 16.657L13.414 20.9a2 2 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path strokeLinecap="round" strokeLinejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
                         {job.location}
                       </span>
                       {job.year.map((y) => <span key={y} className="text-xs bg-gray-100 text-gray-600 px-2.5 py-1 rounded-full font-medium">{y}</span>)}
@@ -433,9 +424,7 @@ export default function InternshipsPage() {
                     </div>
                   </div>
                   <div className="px-6 pb-6">
-                    <a href={job.link} target="_blank" rel="noopener noreferrer" className="block w-full text-center bg-pink-400 hover:bg-pink-500 text-white font-semibold py-3 rounded-xl transition-colors duration-200">
-                      Apply Now →
-                    </a>
+                    <a href={job.link} target="_blank" rel="noopener noreferrer" className="block w-full text-center bg-pink-400 hover:bg-pink-500 text-white font-semibold py-3 rounded-xl transition-colors duration-200">Apply Now →</a>
                   </div>
                 </div>
               ))}
@@ -443,19 +432,13 @@ export default function InternshipsPage() {
           )}
         </section>
 
-        {/* ── Live Listings ── */}
         <section>
           <div className="flex items-center gap-3 mb-6">
             <span className="text-xl">🔴</span>
             <h2 className="text-xl font-bold text-gray-900" style={POPPINS}>Live Listings</h2>
             <span className="text-xs text-green-600 bg-green-50 border border-green-100 px-2.5 py-1 rounded-full font-medium">Updated live</span>
           </div>
-          {loading && (
-            <div className="flex flex-col items-center justify-center py-24 gap-4">
-              <div className="w-10 h-10 border-4 border-pink-200 border-t-pink-400 rounded-full animate-spin" />
-              <p className="text-gray-400 text-sm">Finding live internships...</p>
-            </div>
-          )}
+          {loading && <div className="flex flex-col items-center justify-center py-24 gap-4"><div className="w-10 h-10 border-4 border-pink-200 border-t-pink-400 rounded-full animate-spin" /><p className="text-gray-400 text-sm">Finding live internships...</p></div>}
           {!loading && error && <div className="text-center py-12 bg-white rounded-2xl border border-gray-100"><p className="text-gray-400">{error}</p></div>}
           {!loading && !error && displayedLiveJobs.length === 0 && <div className="text-center py-12 bg-white rounded-2xl border border-gray-100"><p className="text-gray-400">No live listings found. Try a different search.</p></div>}
           {!loading && !error && displayedLiveJobs.length > 0 && (
@@ -465,9 +448,7 @@ export default function InternshipsPage() {
                   <div className="p-6 flex-1">
                     <div className="flex items-start justify-between gap-2 mb-3">
                       <div className="flex items-center gap-2">
-                        <div className="w-9 h-9 rounded-lg bg-pink-50 border border-pink-100 flex items-center justify-center text-pink-400 font-bold text-sm shrink-0">
-                          {job.company?.display_name?.charAt(0) || "?"}
-                        </div>
+                        <div className="w-9 h-9 rounded-lg bg-pink-50 border border-pink-100 flex items-center justify-center text-pink-400 font-bold text-sm shrink-0">{job.company?.display_name?.charAt(0) || "?"}</div>
                         <p className="text-pink-500 font-semibold text-sm">{job.company?.display_name}</p>
                       </div>
                       <div className="flex items-center gap-2">
@@ -479,23 +460,16 @@ export default function InternshipsPage() {
                     <p className="text-gray-500 text-sm leading-relaxed mb-4 line-clamp-3">{job.description?.replace(/\n/g, " ").slice(0, 150)}...</p>
                     <div className="flex flex-wrap gap-2">
                       <span className="inline-flex items-center gap-1 text-xs text-gray-500 bg-gray-50 px-2.5 py-1 rounded-full border border-gray-100">
-                        <svg className="w-3 h-3" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M17.657 16.657L13.414 20.9a2 2 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                        </svg>
+                        <svg className="w-3 h-3" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M17.657 16.657L13.414 20.9a2 2 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path strokeLinecap="round" strokeLinejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
                         {job.location?.display_name || "Location not listed"}
                       </span>
                       {formatSalary(job.salary_min, job.salary_max) && (
-                        <span className="text-xs text-pink-600 bg-pink-50 px-2.5 py-1 rounded-full border border-pink-100 font-medium">
-                          {formatSalary(job.salary_min, job.salary_max)}
-                        </span>
+                        <span className="text-xs text-pink-600 bg-pink-50 px-2.5 py-1 rounded-full border border-pink-100 font-medium">{formatSalary(job.salary_min, job.salary_max)}</span>
                       )}
                     </div>
                   </div>
                   <div className="px-6 pb-6">
-                    <a href={job.redirect_url} target="_blank" rel="noopener noreferrer" className="block w-full text-center bg-pink-400 hover:bg-pink-500 text-white font-semibold py-3 rounded-xl transition-colors duration-200">
-                      Apply Now →
-                    </a>
+                    <a href={job.redirect_url} target="_blank" rel="noopener noreferrer" className="block w-full text-center bg-pink-400 hover:bg-pink-500 text-white font-semibold py-3 rounded-xl transition-colors duration-200">Apply Now →</a>
                   </div>
                 </div>
               ))}
@@ -505,19 +479,17 @@ export default function InternshipsPage() {
       </div>
 
       <footer className="border-t border-gray-100 py-8 pl-9 pr-7 bg-white mt-8">
-  <div className="w-full flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-gray-400">
-    <Link href="/">
-      <Image src="/QTlogo.png" alt="QT Hub" width={80} height={28} className="object-contain" />
-    </Link>
-    <div className="flex gap-6 translate-x-21">
-      <Link href="/internships" className="hover:text-pink-400 transition-colors">Internships</Link>
-      <Link href="/scholarships" className="hover:text-pink-400 transition-colors">Scholarships</Link>
-      <Link href="/resources" className="hover:text-pink-400 transition-colors">Resources</Link>
-      <Link href="/about" className="hover:text-pink-400 transition-colors">About</Link>
-    </div>
-    <p>© 2026 QT Hub · Made for Hampton University</p>
-  </div>
-</footer>
+        <div className="w-full flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-gray-400">
+          <Link href="/"><Image src="/QTlogo.png" alt="QT Hub" width={80} height={28} className="object-contain" /></Link>
+          <div className="flex gap-6 translate-x-21">
+            <Link href="/internships" className="hover:text-pink-400 transition-colors">Internships</Link>
+            <Link href="/scholarships" className="hover:text-pink-400 transition-colors">Scholarships</Link>
+            <Link href="/resources" className="hover:text-pink-400 transition-colors">Resources</Link>
+            <Link href="/about" className="hover:text-pink-400 transition-colors">About</Link>
+          </div>
+          <p>© 2026 QT Hub · Made for Hampton University</p>
+        </div>
+      </footer>
     </main>
   );
 }
