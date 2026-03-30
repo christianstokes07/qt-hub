@@ -147,53 +147,73 @@ const STATE_ALIASES: Record<string, string> = {
   "fort meade": "MD", "landover": "MD",
 };
 
-function SaveButton({ itemId, itemType, title, companyOrOrg, link, deadline }: {
+// SaveButton now receives savedIds set from parent — no individual DB calls on mount
+function SaveButton({ itemId, itemType, title, companyOrOrg, link, deadline, savedIds, onToggle }: {
   itemId: string;
   itemType: "internship" | "scholarship";
   title: string;
   companyOrOrg: string;
   link: string;
   deadline?: string;
+  savedIds: Set<string>;
+  onToggle: (itemId: string, nowSaved: boolean) => void;
 }) {
   const { user, isSignedIn } = useUser();
   const { getToken } = useAuth();
-  const [saved, setSaved] = useState(false);
+  const [saved, setSaved] = useState(savedIds.has(itemId));
   const [loading, setLoading] = useState(false);
 
+  // Sync if savedIds changes (e.g. after initial fetch completes)
   useEffect(() => {
-    if (!isSignedIn || !user) return;
-    const check = async () => {
-      const supabase = await getAuthenticatedSupabase(() => getToken({ template: "supabase" }));
-      const { data } = await supabase.from("favorites").select("id")
-        .eq("user_id", user.id).eq("item_id", itemId).eq("item_type", itemType)
-        .maybeSingle();
-      setSaved(!!data);
-    };
-    check();
-  }, [isSignedIn, user, itemId, itemType]);
+    setSaved(savedIds.has(itemId));
+  }, [savedIds, itemId]);
 
   const toggle = async (e: React.MouseEvent) => {
     e.preventDefault();
     if (!isSignedIn || !user) { alert("Please sign in to save favorites."); return; }
+    if (loading) return;
+
+    // Optimistic update — flip instantly
+    const next = !saved;
+    setSaved(next);
+    onToggle(itemId, next);
     setLoading(true);
-    const supabase = await getAuthenticatedSupabase(() => getToken({ template: "supabase" }));
-    if (saved) {
-      await supabase.from("favorites").delete()
-        .eq("user_id", user.id).eq("item_id", itemId).eq("item_type", itemType);
-      setSaved(false);
-    } else {
-      await supabase.from("favorites").insert({
-        user_id: user.id, item_id: itemId, item_type: itemType,
-        title, company_or_org: companyOrOrg, link, deadline: deadline || "Rolling",
-      });
-      setSaved(true);
+
+    try {
+      const supabase = await getAuthenticatedSupabase(() => getToken({ template: "supabase" }));
+      if (!next) {
+        // Unsave
+        await supabase.from("favorites").delete()
+          .eq("user_id", user.id).eq("item_id", itemId).eq("item_type", itemType);
+        await supabase.from("applications").delete()
+          .eq("user_id", user.id).eq("item_id", itemId).eq("item_type", itemType).eq("status", "saved");
+      } else {
+        // Save to favorites
+        await supabase.from("favorites").insert({
+          user_id: user.id, item_id: itemId, item_type: itemType,
+          title, company_or_org: companyOrOrg, link, deadline: deadline || "Rolling",
+        });
+        // Sync to tracker under "saved" column
+        await supabase.from("applications").upsert({
+          user_id: user.id, item_id: itemId, item_type: itemType,
+          title, company_or_org: companyOrOrg, link,
+          status: "saved", is_custom: false,
+        }, { onConflict: "user_id,item_id,item_type", ignoreDuplicates: true });
+      }
+    } catch {
+      // Revert on failure
+      setSaved(!next);
+      onToggle(itemId, !next);
+    } finally {
+      setLoading(false);
     }
-    setLoading(false);
   };
 
   return (
-    <button onClick={toggle} disabled={loading}
-      className={`p-1.5 rounded-full transition-all duration-200 ${saved ? "text-pink-500" : "text-gray-300 hover:text-pink-400"}`}
+    <button
+      onClick={toggle}
+      disabled={loading}
+      className={`p-1.5 rounded-full transition-all duration-150 ${saved ? "text-pink-500" : "text-gray-300 hover:text-pink-400"}`}
       title={saved ? "Remove from saved" : "Save"}
     >
       <svg className="w-5 h-5" fill={saved ? "currentColor" : "none"} stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
@@ -261,6 +281,9 @@ function ProfileBanner() {
 }
 
 export default function InternshipsPage() {
+  const { user, isSignedIn } = useUser();
+  const { getToken } = useAuth();
+
   const [search, setSearch]                 = useState("");
   const [major, setMajor]                   = useState("All Majors");
   const [locationType, setLocationType]     = useState("All Locations");
@@ -269,6 +292,32 @@ export default function InternshipsPage() {
   const [loading, setLoading]               = useState(false);
   const [error, setError]                   = useState("");
   const [searched, setSearched]             = useState(false);
+
+  // Single batch fetch of all saved item IDs — no per-card queries
+  const [savedIds, setSavedIds] = useState<Set<string>>(new Set());
+
+  useEffect(() => {
+    if (!isSignedIn || !user) return;
+    const fetchSaved = async () => {
+      const supabase = await getAuthenticatedSupabase(() => getToken({ template: "supabase" }));
+      const { data } = await supabase
+        .from("favorites")
+        .select("item_id")
+        .eq("user_id", user.id)
+        .eq("item_type", "internship");
+      if (data) setSavedIds(new Set(data.map((r) => r.item_id)));
+    };
+    fetchSaved();
+  }, [isSignedIn, user]);
+
+  const handleToggle = useCallback((itemId: string, nowSaved: boolean) => {
+    setSavedIds((prev) => {
+      const next = new Set(prev);
+      if (nowSaved) next.add(itemId);
+      else next.delete(itemId);
+      return next;
+    });
+  }, []);
 
   const filteredFeatured = (featuredData as Featured[])
     .filter((job) => {
@@ -296,7 +345,7 @@ export default function InternshipsPage() {
       if (!res.ok) throw new Error("Failed to fetch");
       const data = await res.json();
       setLiveJobs(data.results || []);
-    } catch (err) {
+    } catch {
       setError("Could not load live listings right now.");
       setLiveJobs([]);
     } finally {
@@ -410,7 +459,11 @@ export default function InternshipsPage() {
                         <div className="w-9 h-9 rounded-lg bg-pink-50 border border-pink-100 flex items-center justify-center text-pink-400 font-bold text-sm shrink-0">{job.company.charAt(0)}</div>
                         <p className="text-pink-500 font-semibold text-sm">{job.company}</p>
                       </div>
-                      <SaveButton itemId={String(job.id)} itemType="internship" title={job.title} companyOrOrg={job.company} link={job.link} />
+                      <SaveButton
+                        itemId={String(job.id)} itemType="internship"
+                        title={job.title} companyOrOrg={job.company}
+                        link={job.link} savedIds={savedIds} onToggle={handleToggle}
+                      />
                     </div>
                     <h2 className="text-base font-bold text-gray-900 mb-2 leading-snug line-clamp-2">{job.title}</h2>
                     <p className="text-gray-500 text-sm leading-relaxed mb-4 line-clamp-3">{job.description}</p>
@@ -453,7 +506,11 @@ export default function InternshipsPage() {
                       </div>
                       <div className="flex items-center gap-2">
                         {job.created && <span className="text-gray-400 text-xs whitespace-nowrap">{timeAgo(job.created)}</span>}
-                        <SaveButton itemId={job.id} itemType="internship" title={job.title} companyOrOrg={job.company?.display_name} link={job.redirect_url} />
+                        <SaveButton
+                          itemId={job.id} itemType="internship"
+                          title={job.title} companyOrOrg={job.company?.display_name}
+                          link={job.redirect_url} savedIds={savedIds} onToggle={handleToggle}
+                        />
                       </div>
                     </div>
                     <h2 className="text-base font-bold text-gray-900 mb-2 leading-snug line-clamp-2">{job.title}</h2>
