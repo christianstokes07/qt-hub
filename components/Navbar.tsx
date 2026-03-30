@@ -6,7 +6,7 @@ import { useState, useRef, useEffect } from "react";
 import { SignInButton, useUser, useClerk } from "@clerk/nextjs";
 
 type Props = {
-  active?: "internships" | "scholarships" | "resources" | "about";
+  active?: "internships" | "scholarships" | "resources" | "about" | "tracker";
 };
 
 export default function Navbar({ active }: Props) {
@@ -79,6 +79,9 @@ export default function Navbar({ active }: Props) {
                   <Link href="/saved" onClick={() => setDropdownOpen(false)} className="flex items-center px-4 py-2.5 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-500 transition-colors">
                     My Saved
                   </Link>
+                  <Link href="/tracker" onClick={() => setDropdownOpen(false)} className="flex items-center px-4 py-2.5 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-500 transition-colors">
+                    My Tracker
+                  </Link>
                   <Link href="/profile" onClick={() => setDropdownOpen(false)} className="flex items-center px-4 py-2.5 text-sm text-gray-700 hover:bg-pink-50 hover:text-pink-500 transition-colors">
                     My Profile
                   </Link>
@@ -143,6 +146,7 @@ export default function Navbar({ active }: Props) {
             <div className="border-t border-gray-100 pt-2 flex flex-col gap-3">
               <Link href="/for-you" className="text-gray-700 font-medium hover:text-pink-500" onClick={() => setMenuOpen(false)}>For You</Link>
               <Link href="/saved" className="text-gray-700 font-medium hover:text-pink-500" onClick={() => setMenuOpen(false)}>My Saved</Link>
+              <Link href="/tracker" className="text-gray-700 font-medium hover:text-pink-500" onClick={() => setMenuOpen(false)}>My Tracker</Link>
               <Link href="/profile" className="text-gray-700 font-medium hover:text-pink-500" onClick={() => setMenuOpen(false)}>My Profile</Link>
               <button onClick={() => { openUserProfile(); setMenuOpen(false); }} className="text-left text-gray-700 font-medium hover:text-pink-500">Manage Account</button>
               <button onClick={() => signOut()} className="text-left text-gray-500 font-medium hover:text-gray-700">Sign Out</button>

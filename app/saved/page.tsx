@@ -34,22 +34,75 @@ export default function SavedPage() {
 
     const fetchFavorites = async () => {
       const supabase = await getAuthenticatedSupabase(() => getToken({ template: "supabase" }));
+
       const { data } = await supabase
         .from("favorites")
         .select("*")
         .eq("user_id", user.id)
         .order("created_at", { ascending: false });
-      setFavorites(data || []);
+
+      const favs: Favorite[] = data || [];
+      setFavorites(favs);
       setLoading(false);
+
+      // Sync all favorites into the applications tracker under "saved" status
+      // Uses upsert on (user_id, item_id, item_type) so no duplicates are created
+      // and items the user already moved to another column are left untouched
+      if (favs.length === 0) {
+        console.log("ℹ️ No favorites to sync");
+        return;
+      }
+
+      console.log("📦 Favorites to sync:", favs.length, favs);
+
+      const toUpsert = favs.map((f) => ({
+        user_id: user.id,
+        item_id: f.item_id,
+        title: f.title,
+        company_or_org: f.company_or_org,
+        link: f.link,
+        item_type: f.item_type,
+        status: "saved",
+        is_custom: false,
+      }));
+
+      console.log("⬆️ Upserting to applications:", toUpsert);
+
+      const { data: upsertData, error: upsertError } = await supabase
+        .from("applications")
+        .upsert(toUpsert, {
+          onConflict: "user_id,item_id,item_type",
+          ignoreDuplicates: true,
+        })
+        .select();
+
+      if (upsertError) {
+        console.error("❌ Full upsert error:", JSON.stringify(upsertError, null, 2), Object.keys(upsertError), (upsertError as any).message, (upsertError as any).code, (upsertError as any).details, (upsertError as any).hint);
+      } else {
+        console.log("✅ Upsert success:", upsertData);
+      }
     };
 
     fetchFavorites();
   }, [isLoaded, isSignedIn, user]);
 
-  const remove = async (id: string) => {
+  const remove = async (fav: Favorite) => {
     const supabase = await getAuthenticatedSupabase(() => getToken({ template: "supabase" }));
-    await supabase.from("favorites").delete().eq("id", id);
-    setFavorites((prev) => prev.filter((f) => f.id !== id));
+
+    // Remove from favorites
+    await supabase.from("favorites").delete().eq("id", fav.id);
+
+    // Only remove from applications if still in "saved" column
+    // If they moved it to "applied" etc, leave it alone
+    await supabase
+      .from("applications")
+      .delete()
+      .eq("user_id", user!.id)
+      .eq("item_id", fav.item_id)
+      .eq("item_type", fav.item_type)
+      .eq("status", "saved");
+
+    setFavorites((prev) => prev.filter((f) => f.id !== fav.id));
   };
 
   const internships = favorites.filter((f) => f.item_type === "internship");
@@ -108,7 +161,7 @@ export default function SavedPage() {
                             </div>
                             <p className="text-pink-500 font-semibold text-sm">{fav.company_or_org}</p>
                           </div>
-                          <button onClick={() => remove(fav.id)} className="text-pink-400 hover:text-pink-600 transition-colors" title="Remove">
+                          <button onClick={() => remove(fav)} className="text-pink-400 hover:text-pink-600 transition-colors" title="Remove">
                             <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
                             </svg>
@@ -145,7 +198,7 @@ export default function SavedPage() {
                       <div className="p-6 flex-1">
                         <div className="flex items-center justify-between mb-3">
                           <p className="text-pink-500 font-semibold text-sm">{fav.company_or_org}</p>
-                          <button onClick={() => remove(fav.id)} className="text-pink-400 hover:text-pink-600 transition-colors" title="Remove">
+                          <button onClick={() => remove(fav)} className="text-pink-400 hover:text-pink-600 transition-colors" title="Remove">
                             <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
                             </svg>
